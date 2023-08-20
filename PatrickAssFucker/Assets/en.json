@@ -1,0 +1,21 @@
+﻿{
+  "areas": {
+    "forest": "Pine Grove",
+    "forest_dungeon": "Dungeon of the Forest King",
+    "city": "Lakebad",
+    "city_marketplace": "Marketplace",
+    "city_townhall": "Townhall",
+    "city_townhall_entrance": "Entrance hall of the Townhall",
+    "city_townhall_entrance_description": "You stand in the entrance hall of the town hall. Tall pillars of dark marble support an intricately decorated vaulted ceiling. Chandeliers cast a warm glow onto the red carpet that stretches across the room. To your right is an information desk, behind which sits an elderly lady. Directly ahead, a grand staircase ascends to the building's upper floors. The atmosphere is permeated with an awe-inspiring silence.",
+    "city_townhall_dungeon": "Dungeon of the Townhall",
+    "city_inn": "Blue Goose Inn"
+  },
+  "commands": {
+    "move_selection_title": "Choose the place you want to move to."
+  },
+  "events": {
+    "area_enter": "[yellow]You have entered[/] [gold1]{0}[/][yellow].[/]",
+    "area_with_parent_enter": "[yellow]You have entered[/] [gold1]{0}[/][yellow], within[/] [gold1]{1}[/][yellow].[/]",
+    "area_leave": "[yellow]You have left[/] [gold1]{0}[/][yellow].[/]"
+  }
+}

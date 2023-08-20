@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PatrickAssFucker": {
+      "commandName": "Project",
+      "commandLineArgs": "scaled_valley.csv"
+    }
+  }
+}

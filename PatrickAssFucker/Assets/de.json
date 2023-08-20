@@ -1,0 +1,26 @@
+﻿{
+  "areas": {
+    "forest": "Tannenhain",
+    "forest_dungeon": "Verlies des Waldkönigs",
+    "city": "Lakebad",
+    "city_description": "Die pulsierende Hauptstadt Lakebad, ein Zentrum des Handels und der Politik.",
+    "city_marketplace": "Marktplatz",
+    "city_marketplace_description": "Ein belebter Markt in Lakebad, wo Händler aus nah und fern ihre Waren feilbieten.",
+    "city_townhall": "Rathaus",
+    "city_townhall_description": "Das politische Herz von Lakebad. Hier werden Entscheidungen getroffen, die das tägliche Leben der Bürger beeinflussen.",
+    "city_townhall_entrance": "Eingangshalle des Rathauses",
+    "city_townhall_entrance_description": "[yellow]Du stehst in der Eingangshalle des Rathauses. Hohe Säulen aus dunklem Marmor stützen ein kunstvoll verziertes Deckengewölbe. Kronleuchter werfen ein warmes Licht auf den roten Teppich, der sich durch den Raum erstreckt. Zur Rechten befindet sich ein Informationspult, hinter dem eine ältere Dame sitzt. Vor dir führt eine monumentale Treppe in die höheren Stockwerke des Gebäudes. Die Atmosphäre ist von einer ehrfurchtgebietenden Stille geprägt.[/]",
+    "city_townhall_dungeon": "Kerker des Rathauses",
+    "city_townhall_dungeon_description": "Ein düsterer und geheimnisvoller Ort unter dem Rathaus. Hier werden Gefangene gehalten und Geheimnisse bewahrt.",
+    "city_inn": "Gasthof zur blauen Gans",
+    "city_inn_description": "Ein gemütlicher Gasthof in Lakebad, bekannt für sein herzhaftes Essen und seine freundliche Atmosphäre."
+  },
+  "commands": {
+    "move_selection_title": "Wähle den Ort an den du dich hinbewegen möchtest."
+  },
+  "events": {
+    "area_enter": "[yellow]Du hast[/] [gold1]{0}[/] [yellow]betreten.[/]",
+    "area_with_parent_enter": "[yellow]Du hast[/] [gold1]{0}[/][yellow], innerhalb[/] [gold1]{1}[/][yellow], betreten.[/]",
+    "area_leave": "[yellow]Du hast[/] [gold1]{0}[/] [yellow]verlassen.[/]"
+  }
+}
