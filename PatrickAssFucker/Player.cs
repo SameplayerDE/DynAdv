@@ -14,7 +14,6 @@ namespace PatrickAssFucker
 
     public class Player : Entity
     {
-        public Item Equipped;
         public int Level = 1;
         public int Exp;
         public LevelingType LevelingCurve = LevelingType.Erratic;
@@ -28,10 +27,9 @@ namespace PatrickAssFucker
 
         public Player() : base()
         {
-            Equipped = new Item(Material.NONE, "nichts");
-            Type = "player";
-            Description = "the player";
-            Name = "player";
+            //Type = "player";
+            //Description = "the player";
+            //Name = "player";
             QuestBook = new QuestBook();
         }
 
@@ -81,7 +79,7 @@ namespace PatrickAssFucker
             MoveTo(area);
         }
 
-        public void AddExp(int exp)
+        /**public void AddExp(int exp)
         {
             Exp += exp;
             while (true)
@@ -142,6 +140,6 @@ namespace PatrickAssFucker
                 default:
                     return 0; // Should never reach here
             }
-        }
+        }**/
     }
 }

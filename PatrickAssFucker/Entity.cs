@@ -1,8 +1,34 @@
-﻿using System;
-
-namespace PatrickAssFucker
+﻿namespace PatrickAssFucker
 {
-    public abstract class Entity
+    public class Entity
+    {
+        private Area _currentArea;
+        private string _name;
+        
+        public Area CurrentArea
+        {
+            get
+            {
+                return _currentArea;
+            }
+            protected set
+            {
+                _currentArea = value;
+            }
+        }
+        public virtual string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
+    }
+    /*public abstract class Entity
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -38,5 +64,5 @@ namespace PatrickAssFucker
                 Health += i;
             }
         }
-    }
+    }*/
 }

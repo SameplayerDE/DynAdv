@@ -11,7 +11,7 @@ namespace PatrickAssFucker.Commands
     {
         public void Execute(string[] args)
         {
-            if (args.Length == 0)
+            /**if (args.Length == 0)
             {
                 Brain.Instance.Player.Heal();
             }
@@ -53,7 +53,7 @@ namespace PatrickAssFucker.Commands
                         AnsiConsole.WriteLine($"'{args[1]}' is not a valid number.");
                     }
                 }
-            }
+            }**/
         }
     }
 }

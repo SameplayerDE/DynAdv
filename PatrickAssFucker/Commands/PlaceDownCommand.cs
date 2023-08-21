@@ -11,7 +11,7 @@ namespace PatrickAssFucker.Commands
     {
         public void Execute(string[] args)
         {
-            if (args.Length == 0)
+            /**if (args.Length == 0)
             {
                 if (Brain.Instance.Player.Equipped.Material != Material.NONE)
                 {
@@ -27,7 +27,7 @@ namespace PatrickAssFucker.Commands
             else
             {
                 AnsiConsole.MarkupLine("[yellow]Du kannst dies nicht tun.[/]");
-            }
+            }**/
         }
     }
 }

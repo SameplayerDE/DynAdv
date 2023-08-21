@@ -30,12 +30,12 @@ namespace PatrickAssFucker.Commands
 
                 table.AddEmptyRow();
                 
-                table.AddRow(Localisation.GetString("in_hand"), (Brain.Instance.Player.Equipped.Material == Material.NONE) ? "Kein Item" : Brain.Instance.Player.Equipped.Name);
+                //table.AddRow(Localisation.GetString("in_hand"), (Brain.Instance.Player.Equipped.Material == Material.NONE) ? "Kein Item" : Brain.Instance.Player.Equipped.Name);
 
                 table.AddEmptyRow();
 
-                table.AddRow(Localisation.GetString("maximum_health"), "" + Brain.Instance.Player.MaxHealth);
-                table.AddRow(Localisation.GetString("current_health"), "" + Brain.Instance.Player.Health);
+                //table.AddRow(Localisation.GetString("maximum_health"), "" + Brain.Instance.Player.MaxHealth);
+                //table.AddRow(Localisation.GetString("current_health"), "" + Brain.Instance.Player.Health);
                 
                 table.AddEmptyRow();
 
@@ -44,9 +44,9 @@ namespace PatrickAssFucker.Commands
 
                 table.AddEmptyRow();
 
-                table.AddRow(Localisation.GetString("current_exp"), "" + (Brain.Instance.Player.Exp));
-                table.AddRow(Localisation.GetString("current_level"), "" + (Brain.Instance.Player.Level));
-                table.AddRow(Localisation.GetString("exp_to_level_up"), "" + (Brain.Instance.Player.ExpNeededForLevel(Brain.Instance.Player.Level + 1) - Brain.Instance.Player.Exp));
+                //table.AddRow(Localisation.GetString("current_exp"), "" + (Brain.Instance.Player.Exp));
+                //table.AddRow(Localisation.GetString("current_level"), "" + (Brain.Instance.Player.Level));
+                //table.AddRow(Localisation.GetString("exp_to_level_up"), "" + (Brain.Instance.Player.ExpNeededForLevel(Brain.Instance.Player.Level + 1) - Brain.Instance.Player.Exp));
 
                 table.AddEmptyRow();
 
@@ -55,7 +55,7 @@ namespace PatrickAssFucker.Commands
 
                 AnsiConsole.Write(table);
             }
-            else if (args.Length == 1)
+            /**else if (args.Length == 1)
             {
                 switch (args[0].ToLower())
                 {
@@ -75,7 +75,7 @@ namespace PatrickAssFucker.Commands
                         AnsiConsole.MarkupLine("[yellow]Dieser Status kann nicht überprüft werden.[/]");
                         return;
                 }
-            }
+            }**/
         }
 
         private void ShowProgress(Color fg, Color bg, int max, int min, int value, bool showMaxMin = false, bool showPercentage = false)

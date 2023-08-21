@@ -11,7 +11,7 @@ namespace PatrickAssFucker.Commands
     {
         public void Execute(string[] args)
         {
-            if (args.Length == 0)
+            /**if (args.Length == 0)
             {
             }
             else if (args.Length == 2)
@@ -28,7 +28,7 @@ namespace PatrickAssFucker.Commands
                         AnsiConsole.WriteLine($"'{args[1]}' is not a valid number.");
                     }
                 }
-            }
+            }**/
         }
     }
 }

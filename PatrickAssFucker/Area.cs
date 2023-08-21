@@ -1,4 +1,6 @@
-﻿namespace PatrickAssFucker
+﻿using System.Collections.ObjectModel;
+
+namespace PatrickAssFucker
 {
     public enum AreaIdentifier
     {
@@ -30,7 +32,8 @@
         private List<Area> _inner;
         private Area? _parent;
         private Area? _entrance;
-
+        private List<Entity> _entities;
+        
         public Func<bool> CanEnter = () => true;
         public Action OnEnter;
         public Action OnLeave;
@@ -72,13 +75,8 @@
                 _parent = value;
             }
         }
-        public List<Area> Linked
-        {
-            get
-            {
-                return _linked;
-            }
-        }
+        public ReadOnlyCollection<Area> Linked => _linked.AsReadOnly();
+        public ReadOnlyCollection<Entity> Entities => _entities.AsReadOnly();
 
         public bool HasLinks => _linked.Count > 0;
         public bool HasInner => _inner.Count > 0;
@@ -90,6 +88,7 @@
         {
             _linked = new List<Area>();
             _inner = new List<Area>();
+            _entities = new List<Entity>();
         }
 
         public Area(AreaIdentifier id) : this()
@@ -111,6 +110,15 @@
             }
         }
 
+        public void Add(Entity entity)
+        {
+            if (_entities.Contains(entity))
+            {
+                return;
+            }
+            _entities.Add(entity);
+        }
+        
         public void Add(Area inner)
         {
             if (_inner.Contains(inner))

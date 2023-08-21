@@ -20,12 +20,11 @@ namespace PatrickAssFucker
         private Brain()
         {
             Player = new Player();
-            Player.Health = 32;
 
             Events = new Queue<GameMessage>();
         }
 
-        public void StartBackgroundSound(string path, bool loop = true)
+        /**public void StartBackgroundSound(string path, bool loop = true)
         {
             _backgroundPlayer.Play(path, loop);
         }
@@ -127,7 +126,7 @@ namespace PatrickAssFucker
 
                 ctx.Refresh();
             });
-        }
+        }**/
 
     }
 }

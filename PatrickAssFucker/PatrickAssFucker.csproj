@@ -39,8 +39,7 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Messages\" />
-  </ItemGroup>
+
+
 
 </Project>

@@ -31,9 +31,18 @@
                 {
                     return area;
                 }
+                else
+                {
+                    foreach (var inner in area.GetAllInner())
+                    {
+                        if (identifier == inner.Id)
+                        {
+                            return inner;
+                        }
+                    }
+                }
             }
             return null;
         }
-
     }
 }

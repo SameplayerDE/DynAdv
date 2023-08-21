@@ -36,6 +36,7 @@ namespace PatrickAssFucker
             _commands.Add("sichern", new SaveCommand());
             _commands.Add("laden", new LoadCommand());
             _commands.Add("aufträge", new QuestBookCommand());
+            _commands.Add("reden", new TalkCommand());
 #if DEBUG
             _commands.Add("exp", new ExpCommand());
             _commands.Add("lingo", new LanguageCommand());
@@ -71,7 +72,7 @@ namespace PatrickAssFucker
                 {
                     AnsiConsole.WriteLine("Unbekannter Befehl.");
                 }
-                Brain.Instance.Update();
+                //Brain.Instance.Update();
             }
         }
     }
