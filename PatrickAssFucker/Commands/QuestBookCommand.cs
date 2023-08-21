@@ -62,7 +62,7 @@ namespace PatrickAssFucker.Commands
 
         private void DisplayQuests()
         {
-            var table = new Table()
+            /*var table = new Table()
                 .Border(TableBorder.Rounded)
                 .AddColumn(new TableColumn("[yellow]Quest[/]").Centered())
                 .AddColumn(new TableColumn("[yellow]Completion[/]").Centered());
@@ -79,7 +79,7 @@ namespace PatrickAssFucker.Commands
             else
             {
                 AnsiConsole.Write(table);
-            }
+            }*/
         }
     }
 }

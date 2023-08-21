@@ -30,7 +30,10 @@ namespace PatrickAssFucker.Commands
 
                 foreach (var area in linkedAreas)
                 {
-                    selection.AddChoice(area);
+                    if (area.CanSee())
+                    {
+                        selection.AddChoice(area);
+                    }
                 }
 
                 // "Abbrechen"-Option hinzufügen

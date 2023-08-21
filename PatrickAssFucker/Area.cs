@@ -35,9 +35,15 @@ namespace PatrickAssFucker
         private List<Entity> _entities;
         
         public Func<bool> CanEnter = () => true;
-        public Action OnEnter;
-        public Action OnLeave;
+        public Func<bool> CanLeave = () => true;
+        public Func<bool> CanSee = () => true;
+        
+        public Action? OnEnter;
+        public Action? OnLeave;
 
+        public Action? OnEnterAttempt;
+        public Action? OnLeaveAttempt;
+        
         public virtual AreaIdentifier Id
         {
             get { return _id; }

@@ -14,23 +14,23 @@ namespace PatrickAssFucker
 
     public class Player : Entity
     {
-        public int Level = 1;
-        public int Exp;
-        public LevelingType LevelingCurve = LevelingType.Erratic;
+        //public int Level = 1;
+        //public int Exp;
+        //public LevelingType LevelingCurve = LevelingType.Erratic;
 
-        public QuestBook QuestBook { get; set; }
-        public Area CurrentArea;
+        //public QuestBook QuestBook { get; set; }
+        //public Area CurrentArea;
 
-        public int Strength { get; internal set; }
-        public int Defense { get; internal set; }
-        public int Speed { get; internal set; }
-
+        //public int Strength { get; internal set; }
+        //public int Defense { get; internal set; }
+        //public int Speed { get; internal set; }
+        
         public Player() : base()
         {
             //Type = "player";
             //Description = "the player";
             //Name = "player";
-            QuestBook = new QuestBook();
+            //QuestBook = new QuestBook();
         }
 
         public void MoveTo(Area area)
@@ -48,12 +48,12 @@ namespace PatrickAssFucker
                 canMove = true;
             }
             // Überprüfen Sie, ob die CurrentArea direkt mit dem Zielgebiet verbunden ist.
-            else if (CurrentArea != null && CurrentArea.IsLinkedWith(area) && area.CanEnter())
+            else if (CurrentArea != null && CurrentArea.IsLinkedWith(area) && area.CanEnter() && CurrentArea.CanLeave())
             {
                 canMove = true;
             }
             // Wenn sich der Spieler in einem Eingangsbereich befindet, überprüfen Sie, ob der übergeordnete Bereich mit dem Zielgebiet verbunden ist.
-            else if (CurrentArea != null && CurrentArea.IsEntrance && CurrentArea.Parent != null && CurrentArea.Parent.IsLinkedWith(area) && area.CanEnter())
+            else if (CurrentArea != null && CurrentArea.IsEntrance && CurrentArea.Parent != null && CurrentArea.Parent.IsLinkedWith(area) && area.CanEnter() && CurrentArea.CanLeave())
             {
                 canMove = true;
             }
@@ -68,6 +68,16 @@ namespace PatrickAssFucker
                 {
                     CurrentArea = CurrentArea.Entrance!;
                     CurrentArea.OnEnter?.Invoke();
+                }
+            }
+            else
+            {
+                if (CurrentArea != null)
+                {
+                    if (!CurrentArea.CanLeave())
+                    {
+                        CurrentArea.OnLeaveAttempt?.Invoke();
+                    }
                 }
             }
         }

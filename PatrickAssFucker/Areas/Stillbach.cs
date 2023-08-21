@@ -122,7 +122,7 @@ namespace PatrickAssFucker.Areas
             {
                 OnEnter = () =>
                 {
-                    AnsiConsole.MarkupLine(Localisation.GetString("events.area_with_parent_enter", Name, Parent!.Name));
+                    AnsiConsole.MarkupLine("auf dem weg zum brunnenplatz hast du einen schlüssel gefunden");
                 };
             }
         }
