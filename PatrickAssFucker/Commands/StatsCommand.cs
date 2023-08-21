@@ -24,15 +24,19 @@ namespace PatrickAssFucker.Commands
 
                 table.AddColumn(new TableColumn(new Markup("[yellow]Bezeichung[/]")));
                 table.AddColumn(new TableColumn(new Markup("[yellow]Wert[/]")));
+                
+                table.AddRow(Localisation.GetString("current_area_root"), "" + Brain.Instance.Player.CurrentArea.GetTopParentName());
+                table.AddRow(Localisation.GetString("current_area_node"), "" + Brain.Instance.Player.CurrentArea.Name);
 
+                table.AddEmptyRow();
+                
                 table.AddRow(Localisation.GetString("in_hand"), (Brain.Instance.Player.Equipped.Material == Material.NONE) ? "Kein Item" : Brain.Instance.Player.Equipped.Name);
 
                 table.AddEmptyRow();
 
                 table.AddRow(Localisation.GetString("maximum_health"), "" + Brain.Instance.Player.MaxHealth);
                 table.AddRow(Localisation.GetString("current_health"), "" + Brain.Instance.Player.Health);
-                table.AddRow(Localisation.GetString("current_health"), "" + Brain.Instance.Player.CurrentArea.Name);
-
+                
                 table.AddEmptyRow();
 
                 table.AddRow(Localisation.GetString("maximum_mana"), "");

@@ -46,8 +46,9 @@ namespace PatrickAssFucker
         private void Init()
         {
             AreaManager.Instance.Add(new City());
+            AreaManager.Instance.Add(new Stillbach());
 
-            Brain.Instance.Player.MoveTo(AreaIdentifier.City);
+            Brain.Instance.Player.MoveTo(AreaIdentifier.Stillbach);
         }
 
         public void Run()

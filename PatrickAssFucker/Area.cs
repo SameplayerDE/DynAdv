@@ -6,12 +6,19 @@
         City = 0x0000,
         Forest = 0x0100,
         Moutains = 0x0200,
+        Stillbach = 0x0300,
         //City
         City_Townhall = 0x0010,
         City_Townhall_Entrance = 0x0011,
         City_Townhall_Dungeon = 0x0012,
         City_Marketplace = 0x0020,
         City_Inn = 0x0030,
+        //Stillbad
+        Stillbach_Road = 0x0310,
+        Stillbach_Blacksmith = 0x0320,
+        Stillbach_Blacksmith_GroundFloor = 0x0321,
+        Stillbach_Blacksmith_FirstFloor = 0x03022,
+        Stillbach_WellPlace = 0x0330,
     }
 
     public class Area
@@ -141,6 +148,38 @@
                 complete.AddRange(inner.GetAllInner()); 
             }
             return complete;
+        }
+        
+        public string GetFullName()
+        {
+            if (!HasParent)
+            {
+                return Name;
+            }
+            else
+            {
+                return $"{Parent.GetFullName()} -> {Name}";
+            }
+        }
+        
+        public string GetShortenedName(int maxLength = 30)
+        {
+            string fullName = GetFullName();
+            if (fullName.Length > maxLength)
+            {
+                return fullName.Substring(0, maxLength - 3) + "...";
+            }
+            return fullName;
+        }
+        
+        public string GetTopParentName()
+        {
+            Area currentArea = this;
+            while (currentArea.HasParent)
+            {
+                currentArea = currentArea.Parent;
+            }
+            return currentArea.Name;
         }
     }
 }

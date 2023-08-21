@@ -18,12 +18,15 @@ namespace PatrickAssFucker.Areas
         {
             var market = new Marketplace();
             var townhall = new Townhall();
+            var inn = new Inn();
 
             Add(market);
             Add(townhall);
+            Add(inn);
 
             Entrance = market;
             Area.Link(market, townhall);
+            Area.Link(market, inn);
         }
 
         public class Marketplace : Area
@@ -95,5 +98,19 @@ namespace PatrickAssFucker.Areas
 
         }
 
+        public class Inn : Area
+        {
+            public override string Name => Localisation.GetString("areas.city_inn");
+            public override string Description => Localisation.GetString("areas.city_inn_description");
+
+            public Inn() : base(AreaIdentifier.City_Inn)
+            {
+                OnEnter = () =>
+                {
+                    AnsiConsole.MarkupLine(Localisation.GetString("events.area_with_parent_enter", Name, Parent!.Name));
+                };
+            }
+        }
+        
     }
 }
