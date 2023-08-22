@@ -79,6 +79,13 @@ namespace PatrickAssFucker
                         CurrentArea.OnLeaveAttempt?.Invoke();
                     }
                 }
+                else
+                {
+                    if (!area.CanEnter())
+                    {
+                        area.OnEnterAttempt?.Invoke();
+                    }
+                }
             }
         }
 

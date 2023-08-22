@@ -43,7 +43,15 @@ namespace PatrickAssFucker.Commands
 
                 if (chosenArea != null)
                 {
-                    Brain.Instance.Player.MoveTo(chosenArea);
+                    if (chosenArea.CanEnter())
+                    {
+                        Brain.Instance.Player.MoveTo(chosenArea);
+                    }
+                    else
+                    {
+                        chosenArea.OnEnterAttempt?.Invoke();
+                        //AnsiConsole.MarkupLine(Localisation.GetString("commands.move_can_not_enter"));
+                    }
                 }
             }
             else

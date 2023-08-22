@@ -1,5 +1,7 @@
+using System.Collections;
 using HxLocal;
 using PatrickAssFucker.Entities;
+using PatrickAssFucker.Managers;
 using Spectre.Console;
 
 namespace PatrickAssFucker.Areas
@@ -26,6 +28,9 @@ namespace PatrickAssFucker.Areas
             OnEnter = () =>
             {
                 AnsiConsole.MarkupLine(Localisation.GetString("events.area_enter", Name));
+                StoryProgress.Instance.SetCondition(ProgressType.KeyEvents, "visit_stillbach", true);
+                StoryProgress.Instance.SetCondition(ProgressType.KeyEvents, "visit_blacksmith", false);
+                StoryProgress.Instance.SetCondition(ProgressType.KeyEvents, "visit_wellplace", false);
             };
         }
 
@@ -54,6 +59,35 @@ namespace PatrickAssFucker.Areas
 
                 Entrance = groundFloor;
                 Area.Link(groundFloor, firstFloor);
+                
+                CanEnter = () => StoryProgress.Instance.CheckCondition(ProgressType.KeyEvents, "visit_wellplace");
+                OnEnterAttempt = () =>
+                {
+                    StoryProgress.Instance.SetCondition(ProgressType.KeyEvents, "try_open_door", true);
+                    AnsiConsole.MarkupLine("Die Tür ist verschlossen.");
+                };
+                OnEnter = () =>
+                {
+                    if (StoryProgress.Instance.CheckCondition(ProgressType.KeyEvents, "try_open_door"))
+                    {
+                        AnsiConsole.MarkupLine("Vorsichtig steckst du den gefundenen Schlüssel ins Schloss...");
+                        Thread.Sleep(4000); // Eine kurze Pause, um die Unsicherheit zu betonen
+
+                        AnsiConsole.MarkupLine("Mit einem kleinen Ruck öffnet sich die Tür. Dein Herzschlag verlangsamt sich langsam, während du eintrittst.");
+                    }
+                    else
+                    {
+                        AnsiConsole.MarkupLine("Du nimmst den Schlüssel in die Hand und hältst den Atem an. Passt er wohl?");
+                        Thread.Sleep(4000); // Eine Pause für die Unsicherheit
+
+                        AnsiConsole.MarkupLine("Du steckst den Schlüssel ins Schloss und drehst ihn langsam...");
+                        Thread.Sleep(2000); // Eine längere Pause für Spannung
+
+                        AnsiConsole.MarkupLine("Klick! Die Tür öffnet sich und du trittst ein.");
+                    }
+                };
+
+
             }
 
             public class GroundFloor : Area
@@ -144,7 +178,19 @@ namespace PatrickAssFucker.Areas
             {
                 OnEnter = () =>
                 {
-                    AnsiConsole.MarkupLine("auf dem weg zum brunnenplatz hast du einen schlüssel gefunden");
+                    StoryProgress.Instance.SetCondition(ProgressType.KeyEvents, "visit_wellplace", true);
+
+                    AnsiConsole.MarkupLine("Auf dem Weg zum Brunnenplatz hast du einen Schlüssel gefunden.");
+                    if (!StoryProgress.Instance.CheckCondition(ProgressType.KeyEvents, "try_open_door"))
+                    {
+                        AnsiConsole.MarkupLine("Du fragst dich welches Schloss diese Schlüssel wohl öffnen mag.");
+                        AnsiConsole.MarkupLine("Du steckst ihn ein, er könnte nützlich sein.");
+                    }
+                    else
+                    {
+                        AnsiConsole.MarkupLine("Er hat ähnliche verzierrungen wie das Türschloss der Schmiede.");
+                        AnsiConsole.MarkupLine("Ob er dort wohl passt?");
+                    }
                 };
             }
         }
