@@ -57,5 +57,11 @@
       "default": "Brotscheibn"
     },
     "midgetsword": "Zwergerlschwert"
+  },
+  "common": {
+    "cancel": "Abbrechn",
+    "yes": "Ja",
+    "no": "Naa"
   }
+
 }

@@ -57,5 +57,10 @@
       "default": "Bread"
     },
     "midgetsword": "Dwarf Sword"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "no": "No"
   }
 }

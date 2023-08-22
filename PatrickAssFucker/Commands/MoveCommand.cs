@@ -25,7 +25,7 @@ namespace PatrickAssFucker.Commands
                 }
 
                 var selection = new SelectionPrompt<Area?>() // Beachten Sie das Fragezeichen, um Null-Werte zuzulassen.
-                    .UseConverter(area => area?.Name ?? "Abbrechen") // "Abbrechen" anzeigen, wenn der Wert null ist.
+                    .UseConverter(area => area?.Name ?? Localisation.GetString("common.cancel")) // "Abbrechen" anzeigen, wenn der Wert null ist.
                     .Title(Localisation.GetString("commands.move_selection_title"));
 
                 foreach (var area in linkedAreas)

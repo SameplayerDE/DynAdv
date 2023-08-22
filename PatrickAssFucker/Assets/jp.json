@@ -57,5 +57,11 @@
       "default": "パン"
     },
     "midgetsword": "ミジェットソード"
+  },
+  "common": {
+    "cancel": "キャンセル",
+    "yes": "はい",
+    "no": "いいえ"
   }
+
 }

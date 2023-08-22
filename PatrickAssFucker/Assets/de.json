@@ -57,5 +57,10 @@
       "default": "Brot"
     },
     "midgetsword": "Zwergenschwert"
+  },
+  "common": {
+    "cancel": "Abbrechen",
+    "yes": "Ja",
+    "no": "Nein"
   }
 }

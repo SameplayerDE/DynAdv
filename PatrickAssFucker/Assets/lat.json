@@ -1,0 +1,66 @@
+﻿{
+  "areas": {
+    "stillbach": {
+      "name": "Stillbach",
+      "description": "Stas in introitu villae Stillbach. Ante te via extenditur, inter rusticorum domos transiens."
+    },
+    "stillbach_road": {
+      "name": "Vicus Sabulosus",
+      "description": "In viâ sabulosâ versaris, quae per villam serpit. Terminatur ad locum centralem cum fonte."
+    },
+    "stillbach_blacksmith": {
+      "name": "Ferraria Stillbach",
+      "description": "Ante te stat ferraria Stillbach. Calidus sonus mallei percutientis ad aures tuas pervenit."
+    },
+    "stillbach_blacksmith_groundfloor": {
+      "name": "Ferrariae Pridiepositum",
+      "description": "Fervens ignis in focario ardet, incus parata ad metallum tractandum."
+    },
+    "stillbach_blacksmith_firstfloor": {
+      "name": "Ferrariae Superior Primum",
+      "description": "In superiori primo ferrariae es. Hic sunt repositoria cum instrumentis et frustis metalli disposita."
+    },
+    "stillbach_wellplace": {
+      "name": "Locus Fontis",
+      "description": "Stas in loco pittoresco fontis. Vetus fons medium ornat et aqua murmure tranquillo fertur."
+    }
+  },
+  "commands": {
+    "look_looking": "Circumspectas..",
+    "look_found_item": "Repertum habes instrumentum utile",
+    "look_found_items": "Reperta habes instrumenta utilia",
+    "move_selection_title": "Quo contendere vis?",
+    "talk_selection_title": "Cum quo loqui vis?",
+    "talk_alone": "Circumspicis, sed nemo videtur hic esse cui loquaris.",
+    "talk_nobody": "Praesentes solum modo fugaces ad te aspiciunt et loquacitatem desiderare non videntur.",
+    "talk_not_good": "Tibi instinctus dicit fortasse melius est cum hac persona non loqui.",
+    "grab_selection_title": "Quod instrumentum capere vis?"
+  },
+  "events": {
+    "area_enter": "Ingredis {0}.",
+    "area_with_parent_enter": "Ingredis {0}, intra {1}.",
+    "area_leave": "Exis {0}."
+  },
+  "items": {
+    "apple": {
+      "default": "Malus",
+      "decayed": "Malus putrescens",
+      "bruised": "Malus contusus",
+      "unripe": "Malus immaturus",
+      "mature": "Malus maturus",
+      "prime": "Malus optime status",
+      "overripe": "Malus supra maturitatem",
+      "sunburned": "Malus solarum ardens",
+      "insectdamaged": "Malus insectis laesus"
+    },
+    "bread": {
+      "default": "Panis"
+    },
+    "midgetsword": "Gladius Pygmaeus"
+  },
+  "common": {
+    "cancel": "Cancellare",
+    "yes": "Ita",
+    "no": "Minime"
+  }
+}

@@ -23,7 +23,7 @@ public class TalkCommand : ICommand
             }
 
             var selection = new SelectionPrompt<Entity?>() // Beachten Sie das Fragezeichen, um Null-Werte zuzulassen.
-                .UseConverter(entity => entity?.Name ?? "Abbrechen") // "Abbrechen" anzeigen, wenn der Wert null ist.
+                .UseConverter(entity => entity?.Name ?? Localisation.GetString("common.cancel")) // "Abbrechen" anzeigen, wenn der Wert null ist.
                 .Title(Localisation.GetString("commands.talk_selection_title"));
 
             foreach (var entity in talkableEntities)

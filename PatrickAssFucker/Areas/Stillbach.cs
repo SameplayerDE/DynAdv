@@ -63,41 +63,15 @@ namespace PatrickAssFucker.Areas
 
                 public GroundFloor() : base(AreaIdentifier.Stillbach_Blacksmith_GroundFloor)
                 {
-                    var blacksmith = new DialogEntity();
-                    blacksmith.Name = "Schmied";
+                    var finalDialogue = new Dialogue { NpcText = "wow oke danke", Options = new Option[0] };
+                    var detailsDialogue = new Dialogue { NpcText = "ja habe ich. willst du details", Options = new[] { new Option { Name = "nein direkt annehmen", Action = () => { }, NextDialogue = finalDialogue } } };
+                    var startDialogue = new Dialogue { NpcText = "Hi", Options = new[] { new Option { Name = "hast du eine quest", Action = () => { }, NextDialogue = detailsDialogue } } };
 
+                    var npc = new DialogEntity(startDialogue);
                     var apple = new Item(ItemType.Apple);
                     
-                    Add(blacksmith);
+                    Add(npc);
                     Add(apple);
-
-                    OnEnter = () =>
-                    {
-                        if (blacksmith.State == 1)
-                        {
-                            AnsiConsole.MarkupLine("[yellow]Du betritts die Schmiede. Der Schmied packt dich am Latz und wirft dich hinaus, auf die Schotterstraße, vor der Schmiede.[/]");
-                            blacksmith.State = 2;
-                            Brain.Instance.Player.MoveTo(AreaIdentifier.Stillbach_Road);
-                        }
-
-                        else if (blacksmith.State >= 2 && blacksmith.State < 4)
-                        {
-                            AnsiConsole.MarkupLine("[yellow]Du versucht die Tür zu öffnen doch sie ist verschlossen.[/]");
-                            Brain.Instance.Player.MoveTo(AreaIdentifier.Stillbach_Road);
-                            blacksmith.State++;
-                        }
-                        else if (blacksmith.State == 4)
-                        {
-                            AnsiConsole.MarkupLine("[yellow]Du versuchst die Tür zu öffnen; Ein lautes VERPISS DICH erhallt. Es entsprang dem Inneren der Schmiede.[/]");
-                            Brain.Instance.Player.MoveTo(AreaIdentifier.Stillbach_Road);
-                            blacksmith.State++;
-                        }
-                        else if (blacksmith.State > 4)
-                        {
-                            AnsiConsole.MarkupLine("[yellow]Du hast mit dem Feuer gespielt. Der Schmied stürmte aus seiner Schmiede und erschlug dich mit seinem Hammer.[/]");
-                            AnsiConsole.Write(new FigletText("DU BIST GESTORBEN"));
-                        }
-                    };
                 }
             }
 

@@ -57,5 +57,11 @@
       "default": "Brot"
     },
     "midgetsword": "Zwergeschwert"
+  },
+  "common": {
+    "cancel": "Absage",
+    "yes": "Ja",
+    "no": "Nee"
   }
+
 }

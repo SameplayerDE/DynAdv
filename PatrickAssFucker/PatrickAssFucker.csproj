@@ -40,6 +40,9 @@
     <None Update="Assets\jp.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\lat.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\level_up.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
