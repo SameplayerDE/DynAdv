@@ -6,8 +6,8 @@ namespace PatrickAssFucker.Areas
 {
     public class Stillbach : Area
     {
-        public override string Name => Localisation.GetString("areas.stillbach");
-        public override string Description => Localisation.GetString("areas.stillbach_description");
+        public override string Name => Localisation.GetString("areas.stillbach.name");
+        public override string Description => Localisation.GetString("areas.stillbach.description");
 
         public Stillbach() : base(AreaIdentifier.Stillbach)
         {
@@ -31,8 +31,8 @@ namespace PatrickAssFucker.Areas
 
         public class Road : Area
         {
-            public override string Name => Localisation.GetString("areas.stillbach_road");
-            public override string Description => Localisation.GetString("areas.stillbach_road_description");
+            public override string Name => Localisation.GetString("areas.stillbach_road.name");
+            public override string Description => Localisation.GetString("areas.stillbach_road.description");
 
             public Road() : base(AreaIdentifier.Stillbach_Road)
             {
@@ -41,8 +41,8 @@ namespace PatrickAssFucker.Areas
 
         public class Blacksmith : Area
         {
-            public override string Name => Localisation.GetString("areas.stillbach_blacksmith");
-            public override string Description => Localisation.GetString("areas.stillbach_blacksmith_description");
+            public override string Name => Localisation.GetString("areas.stillbach_blacksmith.name");
+            public override string Description => Localisation.GetString("areas.stillbach_blacksmith.description");
 
             public Blacksmith() : base(AreaIdentifier.Stillbach_Blacksmith)
             {
@@ -58,8 +58,8 @@ namespace PatrickAssFucker.Areas
 
             public class GroundFloor : Area
             {
-                public override string Name => Localisation.GetString("areas.stillbach_blacksmith_groundfloor");
-                public override string Description => Localisation.GetString("areas.stillbach_blacksmith_groundfloor_description");
+                public override string Name => Localisation.GetString("areas.stillbach_blacksmith_groundfloor.name");
+                public override string Description => Localisation.GetString("areas.stillbach_blacksmith_groundfloor.description");
 
                 public GroundFloor() : base(AreaIdentifier.Stillbach_Blacksmith_GroundFloor)
                 {
@@ -103,8 +103,8 @@ namespace PatrickAssFucker.Areas
 
             public class FirstFloor : Area
             {
-                public override string Name => Localisation.GetString("areas.stillbach_blacksmith_firstfloor");
-                public override string Description => Localisation.GetString("areas.stillbach_blacksmith_firstfloor_description");
+                public override string Name => Localisation.GetString("areas.stillbach_blacksmith_firstfloor.name");
+                public override string Description => Localisation.GetString("areas.stillbach_blacksmith_firstfloor.description");
 
                 public FirstFloor() : base(AreaIdentifier.Stillbach_Blacksmith_FirstFloor)
                 {
@@ -129,8 +129,8 @@ namespace PatrickAssFucker.Areas
 
         public class WellPlace : Area
         {
-            public override string Name => Localisation.GetString("areas.stillbach_wellplace");
-            public override string Description => Localisation.GetString("areas.stillbach_wellplace_description");
+            public override string Name => Localisation.GetString("areas.stillbach_wellplace.name");
+            public override string Description => Localisation.GetString("areas.stillbach_wellplace.description");
 
             public WellPlace() : base(AreaIdentifier.Stillbach_WellPlace)
             {

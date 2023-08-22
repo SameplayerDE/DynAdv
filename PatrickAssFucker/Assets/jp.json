@@ -1,0 +1,61 @@
+﻿{
+  "areas": {
+    "stillbach": {
+      "name": "スティルバッハ",
+      "description": "あなたは村の入り口に立っています。前方にはいくつかの風情ある家々の間を通る道が広がっています。"
+    },
+    "stillbach_road": {
+      "name": "砂利道",
+      "description": "あなたは村内を縫うように砂利道に立っています。中央広場には噴水があります。"
+    },
+    "stillbach_blacksmith": {
+      "name": "鍛冶屋",
+      "description": "前方にはスティルバッハの鍛冶屋があります。金属を打つ音が温かい音色で耳に響きます。"
+    },
+    "stillbach_blacksmith_groundfloor": {
+      "name": "鍛冶屋の1階",
+      "description": "火がパチパチと燃えており、金床は金属の加工のために準備されています。"
+    },
+    "stillbach_blacksmith_firstfloor": {
+      "name": "鍛冶屋の2階",
+      "description": "あなたは鍛冶屋の2階にいます。工具や金属の部品が並べられた棚があります。"
+    },
+    "stillbach_wellplace": {
+      "name": "井戸の広場",
+      "description": "あなたは美しい井戸の広場に立っています。古い井戸が中央に飾られ、水のせせらぎが穏やかな雰囲気を醸し出しています。"
+    }
+  },
+  "commands": {
+    "look_looking": "周りを見回します...",
+    "look_found_item": "使えるアイテムを見つけました",
+    "look_found_items": "使えるアイテムを見つけました",
+    "move_selection_title": "どこに行きたいですか？",
+    "talk_selection_title": "誰と話しますか？",
+    "talk_alone": "周りを見回しますが、話す相手はいないようです。",
+    "talk_nobody": "周囲の人々はちらっとあなたを見て、話す気配はありません。",
+    "talk_not_good": "直感的に、その人と話すのは避けたほうが良さそうです。",
+    "grab_selection_title": "どのアイテムを持っていきますか？"
+  },
+  "events": {
+    "area_enter": "{0} に入りました。",
+    "area_with_parent_enter": "{1} の中の {0} に入りました。",
+    "area_leave": "{0} を出ました。"
+  },
+  "items": {
+    "apple": {
+      "default": "りんご",
+      "decayed": "腐ったりんご",
+      "bruised": "傷ついたりんご",
+      "unripe": "未熟なりんご",
+      "mature": "熟したりんご",
+      "prime": "最適な状態のりんご",
+      "overripe": "熟りすぎたりんご",
+      "sunburned": "日焼けしたりんご",
+      "insectdamaged": "虫による傷のついたりんご"
+    },
+    "bread": {
+      "default": "パン"
+    },
+    "midgetsword": "ミジェットソード"
+  }
+}

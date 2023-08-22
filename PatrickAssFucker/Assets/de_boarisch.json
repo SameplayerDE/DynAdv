@@ -1,0 +1,61 @@
+﻿{
+  "areas": {
+    "stillbach": {
+      "name": "Stillbach",
+      "description": "Du stehst am Eingang vom Dörfli Stillbach. Voa dir erstreckt si a Weg, der durch an paar urige Häusln hindurchführt."
+    },
+    "stillbach_road": {
+      "name": "Schotterweg",
+      "description": "Du befindest di aufm Schotterweg, der durchs Dörfli schlängelt. Er endt an am zentralen Platz mit an Brunna."
+    },
+    "stillbach_blacksmith": {
+      "name": "Schmiedn",
+      "description": "Vor dir steht d'Schmiedn vom Dörfli Stillbach. Da warme Klong vo hämmerndem Metall dringt an deine Ohrwaschl."
+    },
+    "stillbach_blacksmith_groundfloor": {
+      "name": "Erdgschoß vo da Schmiedn",
+      "description": "A knistriges Feuer brennt in da Feierstell, während da Amboss bereit is für d'Bearbeitung vo Metall."
+    },
+    "stillbach_blacksmith_firstfloor": {
+      "name": "Ersta Stock vo da Schmiedn",
+      "description": "Du befindest di im ersta Stock vo da Schmiedn. Do san Regal mit Werkzeug und Metallstück angeordnet."
+    },
+    "stillbach_wellplace": {
+      "name": "Brunna-Platz",
+      "description": "Du stehst aufm scheena Brunna-Platz. A oidn Brunna schmückt da Mittn und 's plätschernde Wasser macht a beruhigende Stimmung."
+    }
+  },
+  "commands": {
+    "look_looking": "Du schaust di um...",
+    "look_found_item": "Du host a brauchbares Zeig g'funden",
+    "look_found_items": "Du host brauchbare Zeign g'funden",
+    "move_selection_title": "Wohin mogst gehn?",
+    "talk_selection_title": "Mit wem mogst redn?",
+    "talk_alone": "Du schaust di um, oba es schaut aus, es is koana do, mit'mst redn könntst.",
+    "talk_nobody": "Die Leid rundherum schaugn kurz her und scheinen ned grad redsüchtig z'sein.",
+    "talk_not_good": "Dei G'fühl sogt da, dass ma vielleicht besser ned mit dera Person redn deafst.",
+    "grab_selection_title": "Wölkane Zeig mogst aufnehma?"
+  },
+  "events": {
+    "area_enter": "Du betrittst {0}.",
+    "area_with_parent_enter": "Du betrittst {0}, drinna bei {1}.",
+    "area_leave": "Du verlässt {0}."
+  },
+  "items": {
+    "apple": {
+      "default": "Oba",
+      "decayed": "Faular Oba",
+      "bruised": "Vabeulda Oba",
+      "unripe": "Unreifa Oba",
+      "mature": "Reifa Oba",
+      "prime": "Oba in bester Verfassung",
+      "overripe": "Z'riafa Oba",
+      "sunburned": "Sonnenverbrannta Oba",
+      "insectdamaged": "Vo Insektn beschädigta Oba"
+    },
+    "bread": {
+      "default": "Brotscheibn"
+    },
+    "midgetsword": "Zwergerlschwert"
+  }
+}

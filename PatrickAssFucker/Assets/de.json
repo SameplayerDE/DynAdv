@@ -1,41 +1,45 @@
 ﻿{
   "areas": {
-    "forest": "Tannenhain",
-    "forest_description": "[yellow]Ein dichter Wald, wo das Rauschen der Blätter und das Zwitschern der Vögel die Stille durchbrechen. Die Wege sind von frischen Tannennadeln gesäumt und die Luft riecht nach Erde und Moos.[/]",
-    "forest_dungeon": "Verlies des Waldkönigs",
-    "forest_dungeon_description": "[yellow]Ein düsteres Verlies, tief unter der Erde verborgen, nur von wenigen flackernden Fackeln erleuchtet. Die kalte, feuchte Luft lässt jeden Atemzug spüren.[/]",
-    "city": "Lakebad",
-    "city_description": "[yellow]Lakebad, eine geschäftige Hauptstadt, wo Gassen und Plätze vom täglichen Treiben ihrer Bewohner erfüllt sind. Fachwerkhäuser und einfache Steinkonstruktionen bestimmen das Stadtbild.[/]",
-    "city_marketplace": "Marktplatz",
-    "city_marketplace_description": "[yellow]Ein belebter Markt in Lakebad, wo Händler aus nah und fern ihre Waren feilbieten. In der Nähe siehst du das majestätische Rathaus und den gemütlichen Gasthof zur blauen Gans.[/]",
-    "city_townhall": "Rathaus",
-    "city_townhall_description": "[yellow]Ein solides Steingebäude, das über Lakebad wacht. Seine schlichte Bauweise zeigt dennoch seine Bedeutung als Ort des Rates und der Verwaltung.[/]",
-    "city_townhall_entrance": "Eingangshalle des Rathauses",
-    "city_townhall_entrance_description": "[yellow]Ein geräumiger Raum mit groben Steinwänden und Holzbalken, die die Decke stützen. Fackeln an den Wänden werfen ein warmes Licht auf den einfachen Steinboden. Zur Rechten ein hölzernes Pult, hinter dem ein Schreiber sitzt. Eine hölzerne Treppe führt zu den oberen Stockwerken. Die Stille zeugt von der Würde des Ortes.[/]",
-    "city_townhall_dungeon": "Kerker des Rathauses",
-    "city_townhall_dungeon_description": "[yellow]Ein dunkler, unterirdischer Raum, erleuchtet nur von wenigen Fackeln. Das Klirren von Eisen und das Flüstern der Gefangenen verleihen dem Ort ein beklemmendes Gefühl.[/]",
-    "city_inn": "Gasthof zur blauen Gans",
-    "city_inn_description": "[yellow]Ein einladender Ort mit rauchgeschwärzten Balken und knarrenden Holzfußböden. Hier versammeln sich die Stadtbewohner, um bei einem Krug Bier Neuigkeiten auszutauschen und die Wärme des Kaminfeuers zu genießen.[/]",
-    "stillbach": "Stillbach",
-    "stillbach_description": "[yellow]Ein beschauliches Dorf mit schotterbedeckten Wegen und einfachen Häusern.[/]",
-    "stillbach_road": "Schotterweg",
-    "stillbach_road_description": "[yellow]Ein einfacher Weg, der sich durch das Dorf schlängelt. Die Steine knirschen unter den Füßen der Passanten.[/]",
-    "stillbach_blacksmith": "Schmiede",
-    "stillbach_blacksmith_description": "[yellow]Das Herz des Dorfes, wo Metall in nützliche Werkzeuge und kunstvolle Gegenstände verwandelt wird.[/]",
-    "stillbach_blacksmith_groundfloor": "Erdgeschoss der Schmiede",
-    "stillbach_blacksmith_groundfloor_description": "[yellow]Ein Ort des Handwerks, wo das Feuer brennt und der Schmied bei der Arbeit ist.[/]",
-    "stillbach_blacksmith_firstfloor": "Erster Stock der Schmiede",
-    "stillbach_blacksmith_firstfloor_description": "[yellow]Ein Lagerplatz für Werkzeuge, Waffen und andere von der Schmiede hergestellte Gegenstände.[/]",
-    "stillbach_wellplace": "Brunnenplatz",
-    "stillbach_wellplace_description": "[yellow]Ein ruhiger Ort im Zentrum des Dorfes, wo die Dorfbewohner Wasser holen und sich ausruhen können.[/]"
+    "stillbach": {
+      "name": "Stillbach",
+      "description": "Du stehst am Eingang des Dorfes Stillbach. Vor dir erstreckt sich ein Weg, der zwischen einigen rustikalen Häusern hindurchführt."
+    },
+    "stillbach_road": {
+      "name": "Schotterweg",
+      "description": "Du befindest dich auf einem Schotterweg, der sich durch das Dorf schlängelt. Er endet an einem zentralen Platz mit einem Brunnen."
+    },
+    "stillbach_blacksmith": {
+      "name": "Schmiede",
+      "description": "Vor dir steht die Schmiede von Stillbach. Der warme Klang von hämmerndem Metall dringt an deine Ohren."
+    },
+    "stillbach_blacksmith_groundfloor": {
+      "name": "Erdgeschoss der Schmiede",
+      "description": "Ein knisterndes Feuer brennt in der Feuerstelle, während der Amboss bereit für die Bearbeitung von Metall ist."
+    },
+    "stillbach_blacksmith_firstfloor": {
+      "name": "Erster Stock der Schmiede",
+      "description": "Du befindest dich im ersten Stock der Schmiede. Hier sind Regale mit Werkzeugen und Metallstücken angeordnet."
+    },
+    "stillbach_wellplace": {
+      "name": "Brunnenplatz",
+      "description": "Du stehst auf dem malerischen Brunnenplatz. Ein alter Brunnen ziert die Mitte und das plätschernde Wasser erzeugt eine beruhigende Atmosphäre."
+    }
   },
   "commands": {
-    "move_selection_title": "[yellow]Wohin möchtest Du Dich begeben?[/]"
+    "look_looking": "Du schaust dich um..",
+    "look_found_item": "Du hast einen brauchbaren Gegenstand gefunden",
+    "look_found_items": "Du hast brauchbare Gegenstände gefunden",
+    "move_selection_title": "Wohin möchtest du reisen?",
+    "talk_selection_title": "Mit wem möchtest du sprechen?",
+    "talk_alone": "Du schaust dich um, doch es scheint niemand hier zu sein, mit dem du sprechen könntest.",
+    "talk_nobody": "Die Anwesenden werfen dir nur flüchtige Blicke zu und scheinen nicht gesprächig zu sein.",
+    "talk_not_good": "Dein Instinkt sagt dir, dass es vielleicht besser ist, mit dieser Person nicht zu sprechen.",
+    "grab_selection_title": "Welchen Gegenstand möchtest du aufnehmen?"
   },
   "events": {
-    "area_enter": "[yellow]Du trittst in[/] [gold1]{0}[/] [yellow]hinein.[/]",
-    "area_with_parent_enter": "[yellow]Du betrittst[/] [gold1]{0}[/][yellow], gelegen in[/] [gold1]{1}[/][yellow].[/]",
-    "area_leave": "[yellow]Du verlässt[/] [gold1]{0}[/] nun.[/]"
+    "area_enter": "Du betrittst {0}.",
+    "area_with_parent_enter": "Du betrittst {0}, innerhalb {1}.",
+    "area_leave": "Du verlässt {0}."
   },
   "items": {
     "apple": {
@@ -52,6 +56,6 @@
     "bread": {
       "default": "Brot"
     },
-    "midgetsword" : "Zwergenschwert"
+    "midgetsword": "Zwergenschwert"
   }
 }

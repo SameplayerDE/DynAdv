@@ -1,0 +1,61 @@
+﻿{
+  "areas": {
+    "stillbach": {
+      "name": "Stillbach",
+      "description": "Du stehst am Iwwergang vum Dörfsche Stillbach. Vor deiner Nase erstreckt sich en Weeschd, der zwische e paa rustikale Häisjer durchführt."
+    },
+    "stillbach_road": {
+      "name": "Schotterweesch",
+      "description": "Do bissde grad uff em Schotterweesch, der dorch's Dörfsche schlongelt. Der endet an em zentralen Plätzjer mit em Brunne."
+    },
+    "stillbach_blacksmith": {
+      "name": "Schmied",
+      "description": "Vor dir steht die Schmied von Stillbach. De warme Klang vum hämmernde Metall dringt an dei Ohre."
+    },
+    "stillbach_blacksmith_groundfloor": {
+      "name": "Erdgeschoss vum Schmied",
+      "description": "En knisterndes Feier brennt in der Feierstel, während der Amboss bereit is für die Bearbeitung vum Metall."
+    },
+    "stillbach_blacksmith_firstfloor": {
+      "name": "Erschte Stock vum Schmied",
+      "description": "Do bissde im erschte Stock vum Schmied. Hier sinn Regal mit Werkzeisch un Metallstück uffgestellt."
+    },
+    "stillbach_wellplace": {
+      "name": "Brunneplatz",
+      "description": "Do bissde uff'm scheene Brunneplatz. En alt Brunne ziert die Midd un's plätschernde Wasser macht en beruhigende Atmosphär."
+    }
+  },
+  "commands": {
+    "look_looking": "Du glotzst rum..",
+    "look_found_item": "Du hoscht en brauchbares Gedöns gefunn",
+    "look_found_items": "Du hoscht brauchbares Gedöns gefunn",
+    "move_selection_title": "Wohin willsde hinner?",
+    "talk_selection_title": "Mit wem willsde babbeln?",
+    "talk_alone": "Du glotzst rum, abber's scheint keiner do zu sei, mit demmer babbeln könnt.",
+    "talk_nobody": "Die Leit gucke kurz her un scheinen net grad babbelich zu sei.",
+    "talk_not_good": "Dein Gefühl saacht dir, dass es vielleicht besser is, mit däm Kerl net zu babbeln.",
+    "grab_selection_title": "Welche Saach willsde mitnehme?"
+  },
+  "events": {
+    "area_enter": "Du kummst in {0} nei.",
+    "area_with_parent_enter": "Du kummst in {0}, innerhalb vun {1} nei.",
+    "area_leave": "Du gehst vun {0} fort."
+  },
+  "items": {
+    "apple": {
+      "default": "Ebbel",
+      "decayed": "Faulisch Ebbel",
+      "bruised": "Huddeles Ebbel",
+      "unripe": "Onreifes Ebbel",
+      "mature": "Raisches Ebbel",
+      "prime": "Ebbel in optimalem Zustand",
+      "overripe": "Iwwerraisches Ebbel",
+      "sunburned": "Sunneverbrenntes Ebbel",
+      "insectdamaged": "Vun Insekte beschadde Ebbel"
+    },
+    "bread": {
+      "default": "Brot"
+    },
+    "midgetsword": "Zwergeschwert"
+  }
+}

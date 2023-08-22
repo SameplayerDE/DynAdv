@@ -19,18 +19,25 @@ namespace PatrickAssFucker.Commands
 
                 var area = Brain.Instance.Player.CurrentArea;
                 
-                AnsiConsole.Status().Start("Du schaust dich um...", ctx =>
-                {
-                    ctx.Status("[yellow]Du schaust dich um...[/]");
-                    ctx.Spinner(Spinner.Known.Line);
-                    ctx.SpinnerStyle(Style.Parse("gold1"));
-                    Thread.Sleep(2000);
-                });
-
+                //AnsiConsole.Status().Start(Localisation.GetString("commands.look_looking"), ctx =>
+                //{
+                //    //ctx.Status();
+                //    //ctx.Spinner(Spinner.Known.Line);
+                //    Thread.Sleep(2000);
+                //});
 
                 AnsiConsole.MarkupLine(area.Description);
                 if (area.HasItems)
                 {
+                    if (area.Items.Count == 1)
+                    {
+                        AnsiConsole.MarkupLine(Localisation.GetString("commands.look_found_item"));
+                    }
+                    else
+                    {
+                        AnsiConsole.MarkupLine(Localisation.GetString("commands.look_found_items"));
+                    }
+
                     foreach (var item in area.Items)
                     {
                         if (item.HasMeta)

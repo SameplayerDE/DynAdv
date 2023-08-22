@@ -18,7 +18,7 @@ public class TalkCommand : ICommand
 
             if (talkableEntities.Count == 0)
             {
-                AnsiConsole.MarkupLine("Hier ist Niemand zum reden");
+                AnsiConsole.MarkupLine(Localisation.GetString("commands.talk_alone"));
                 return;
             }
 

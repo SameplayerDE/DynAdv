@@ -1,21 +1,61 @@
 ﻿{
   "areas": {
-    "forest": "Pine Grove",
-    "forest_dungeon": "Dungeon of the Forest King",
-    "city": "Lakebad",
-    "city_marketplace": "Marketplace",
-    "city_townhall": "Townhall",
-    "city_townhall_entrance": "Entrance hall of the Townhall",
-    "city_townhall_entrance_description": "You stand in the entrance hall of the town hall. Tall pillars of dark marble support an intricately decorated vaulted ceiling. Chandeliers cast a warm glow onto the red carpet that stretches across the room. To your right is an information desk, behind which sits an elderly lady. Directly ahead, a grand staircase ascends to the building's upper floors. The atmosphere is permeated with an awe-inspiring silence.",
-    "city_townhall_dungeon": "Dungeon of the Townhall",
-    "city_inn": "Blue Goose Inn"
+    "stillbach": {
+      "name": "Stillbrook",
+      "description": "You stand at the entrance of the village Stillbrook. A path stretches before you, winding between some rustic houses."
+    },
+    "stillbach_road": {
+      "name": "Gravel Road",
+      "description": "You find yourself on a gravel road that meanders through the village. It ends at a central square with a fountain."
+    },
+    "stillbach_blacksmith": {
+      "name": "Blacksmith",
+      "description": "Before you stands the blacksmith of Stillbrook. The warm sound of hammering metal reaches your ears."
+    },
+    "stillbach_blacksmith_groundfloor": {
+      "name": "Ground Floor of the Blacksmith",
+      "description": "A crackling fire burns in the hearth as the anvil stands ready for metalwork."
+    },
+    "stillbach_blacksmith_firstfloor": {
+      "name": "First Floor of the Blacksmith",
+      "description": "You are on the first floor of the blacksmith. Shelves are arranged with tools and pieces of metal."
+    },
+    "stillbach_wellplace": {
+      "name": "Well Place",
+      "description": "You stand on the picturesque well place. An old well adorns the center, and the trickling water creates a soothing atmosphere."
+    }
   },
   "commands": {
-    "move_selection_title": "Choose the place you want to move to."
+    "look_looking": "You look around...",
+    "look_found_item": "You've found a usable item",
+    "look_found_items": "You've found usable items",
+    "move_selection_title": "Where would you like to travel?",
+    "talk_selection_title": "Whom would you like to talk to?",
+    "talk_alone": "You look around, but there doesn't seem to be anyone here to talk to.",
+    "talk_nobody": "The onlookers cast fleeting glances at you and don't seem talkative.",
+    "talk_not_good": "Your instinct tells you it might be better not to talk to this person.",
+    "grab_selection_title": "Which item would you like to pick up?"
   },
   "events": {
-    "area_enter": "[yellow]You have entered[/] [gold1]{0}[/][yellow].[/]",
-    "area_with_parent_enter": "[yellow]You have entered[/] [gold1]{0}[/][yellow], within[/] [gold1]{1}[/][yellow].[/]",
-    "area_leave": "[yellow]You have left[/] [gold1]{0}[/][yellow].[/]"
+    "area_enter": "You enter {0}.",
+    "area_with_parent_enter": "You enter {0}, within {1}.",
+    "area_leave": "You leave {0}."
+  },
+  "items": {
+    "apple": {
+      "default": "Apple",
+      "decayed": "Decayed Apple",
+      "bruised": "Bruised Apple",
+      "unripe": "Unripe Apple",
+      "mature": "Mature Apple",
+      "prime": "Apple in Optimal Condition",
+      "overripe": "Overripe Apple",
+      "sunburned": "Sunburned Apple",
+      "insectdamaged": "Apple Damaged by Insects"
+    },
+    "bread": {
+      "default": "Bread"
+    },
+    "midgetsword": "Dwarf Sword"
   }
 }
