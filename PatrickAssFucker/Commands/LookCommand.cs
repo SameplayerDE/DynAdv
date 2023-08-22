@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using HxLocal;
+using PatrickAssFucker.Entities;
 
 namespace PatrickAssFucker.Commands
 {
@@ -14,6 +16,9 @@ namespace PatrickAssFucker.Commands
         {
             if (args.Length == 0)
             {
+
+                var area = Brain.Instance.Player.CurrentArea;
+                
                 AnsiConsole.Status().Start("Du schaust dich um...", ctx =>
                 {
                     ctx.Status("[yellow]Du schaust dich um...[/]");
@@ -23,8 +28,29 @@ namespace PatrickAssFucker.Commands
                 });
 
 
-                AnsiConsole.MarkupLine(Brain.Instance.Player.CurrentArea.Description);
-
+                AnsiConsole.MarkupLine(area.Description);
+                if (area.HasItems)
+                {
+                    foreach (var item in area.Items)
+                    {
+                        if (item.HasMeta)
+                        {
+                            var meta = item.Meta;
+                            if (meta.Displayname != null)
+                            {
+                                AnsiConsole.MarkupLine("- " + meta.Displayname);
+                                continue;
+                            }
+                            if (meta.HasTag("translationKey"))
+                            {
+                                var key = meta.GetTag<string>("translationKey");
+                                AnsiConsole.MarkupLine("- " + Localisation.GetString(key));
+                                continue;
+                            }
+                        }
+                        AnsiConsole.MarkupLine("- " + item.Name);
+                    }
+                }
             }
             else
             {

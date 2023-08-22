@@ -66,11 +66,10 @@ namespace PatrickAssFucker.Areas
                     var blacksmith = new DialogEntity();
                     blacksmith.Name = "Schmied";
 
-                    var helmet = new Item();
-                    helmet.Name = "Helm";
+                    var apple = new Item(ItemType.Apple);
                     
                     Add(blacksmith);
-                    Add(helmet);
+                    Add(apple);
 
                     OnEnter = () =>
                     {
@@ -109,6 +108,21 @@ namespace PatrickAssFucker.Areas
 
                 public FirstFloor() : base(AreaIdentifier.Stillbach_Blacksmith_FirstFloor)
                 {
+                    var bread = new Item(ItemType.Bread);
+                    var breadMeta = bread.CreateMeta();
+                    breadMeta.AddTag("expired", false);
+                    bread.Meta = breadMeta;
+
+                    var sword = new Item(ItemType.IronSword);
+                    var swordMeta = sword.CreateMeta();
+                    swordMeta.AddTag("translationKey", "items.midgetsword");
+                    swordMeta.AddTag("damage", 15);
+                    swordMeta.AddTag("durability", 10);
+                    swordMeta.AddTag("weight", 12);
+                    sword.Meta = swordMeta;
+                    
+                    Add(bread);
+                    Add(sword);
                 }
             }
         }

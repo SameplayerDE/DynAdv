@@ -36,5 +36,22 @@
     "area_enter": "[yellow]Du trittst in[/] [gold1]{0}[/] [yellow]hinein.[/]",
     "area_with_parent_enter": "[yellow]Du betrittst[/] [gold1]{0}[/][yellow], gelegen in[/] [gold1]{1}[/][yellow].[/]",
     "area_leave": "[yellow]Du verlässt[/] [gold1]{0}[/] nun.[/]"
+  },
+  "items": {
+    "apple": {
+      "default": "Apfel",
+      "decayed": "Verfaulter Apfel",
+      "bruised": "Verbeulter Apfel",
+      "unripe": "Unreifer Apfel",
+      "mature": "Reifer Apfel",
+      "prime": "Apfel in optimalem Zustand",
+      "overripe": "Überreifer Apfel",
+      "sunburned": "Sonnenverbrannter Apfel",
+      "insectdamaged": "Von Insekten beschädigter Apfel"
+    },
+    "bread": {
+      "default": "Brot"
+    },
+    "midgetsword" : "Zwergenschwert"
   }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using PatrickAssFucker.Entities;
 
 namespace PatrickAssFucker
 {
@@ -33,6 +34,7 @@ namespace PatrickAssFucker
         private Area? _parent;
         private Area? _entrance;
         private List<Entity> _entities;
+        private List<Item> _items;
         
         public Func<bool> CanEnter = () => true;
         public Func<bool> CanLeave = () => true;
@@ -83,9 +85,12 @@ namespace PatrickAssFucker
         }
         public ReadOnlyCollection<Area> Linked => _linked.AsReadOnly();
         public ReadOnlyCollection<Entity> Entities => _entities.AsReadOnly();
+        public ReadOnlyCollection<Item> Items => _items.AsReadOnly();
 
         public bool HasLinks => _linked.Count > 0;
         public bool HasInner => _inner.Count > 0;
+        public bool HasEntities => _entities.Count > 0;
+        public bool HasItems => _items.Count > 0;
         public bool HasParent => _parent != null;
         public bool HasEntrance => _entrance != null;
         public bool IsEntrance => _parent?._entrance == this;
@@ -95,6 +100,7 @@ namespace PatrickAssFucker
             _linked = new List<Area>();
             _inner = new List<Area>();
             _entities = new List<Entity>();
+            _items = new List<Item>();
         }
 
         public Area(AreaIdentifier id) : this()
@@ -123,6 +129,16 @@ namespace PatrickAssFucker
                 return;
             }
             _entities.Add(entity);
+        }
+        
+        public void Add(Item item)
+        {
+            _items.Add(item);
+        }
+        
+        public void Remove(Item item)
+        {
+            _items.Remove(item);
         }
         
         public void Add(Area inner)
