@@ -63,9 +63,43 @@ namespace PatrickAssFucker.Areas
 
                 public GroundFloor() : base(AreaIdentifier.Stillbach_Blacksmith_GroundFloor)
                 {
-                    var finalDialogue = new Dialogue { NpcText = "wow oke danke", Options = new Option[0] };
-                    var detailsDialogue = new Dialogue { NpcText = "ja habe ich. willst du details", Options = new[] { new Option { Name = "nein direkt annehmen", Action = () => { }, NextDialogue = finalDialogue } } };
-                    var startDialogue = new Dialogue { NpcText = "Hi", Options = new[] { new Option { Name = "hast du eine quest", Action = () => { }, NextDialogue = detailsDialogue } } };
+                    var aboutTownDialogue = new Dialogue();
+                    var recentEventsDialogue = new Dialogue();
+                    var aboutHimDialogue = new Dialogue();
+
+                    aboutHimDialogue.NpcText = "Über mich? Nun, ich bin Schmied, wie du siehst. Mein Vater war's, sein Vater auch. Arbeit ist hart, aber ehrlich. Was willst du noch wissen, hm?";
+                    aboutHimDialogue.Options = new[]
+                    {
+    new Option { Name = "Erzähl mir mehr über Stillbach.", Action = () => { }, NextDialogue = aboutTownDialogue },
+    new Option { Name = "Was ist hier kürzlich passiert?", Action = () => { }, NextDialogue = recentEventsDialogue },
+    new Option { Name = "Tschüss.", Action = () => { Console.WriteLine("Mach's gut, Fremder."); }, NextDialogue = null }
+};
+
+                    recentEventsDialogue.NpcText = "Was neues? 'n Sturm hat letztens 'n Baum umgehauen. Ansonsten? Geschäft wie immer. Nich' viel los hier. Warum fragst du?";
+                    recentEventsDialogue.Options = new[]
+                    {
+    new Option { Name = "Erzähl mir mehr über dich.", Action = () => { }, NextDialogue = aboutHimDialogue },
+    new Option { Name = "Tschüss.", Action = () => { Console.WriteLine("Mach's gut, Fremder."); }, NextDialogue = null }
+};
+
+                    aboutTownDialogue.NpcText = "Stillbach, hm? Nun, 'n ruhiger Ort, das ist er. Viel passiert hier nich'. Du willst Spaß, musst woanders hingehen. Aber die Leut' hier sind ehrlich und das Land ist schön. Jetzt lass mich arbeiten!";
+                    aboutTownDialogue.Options = new[]
+                    {
+    new Option { Name = "Erzähl mir mehr über dich.", Action = () => { }, NextDialogue = aboutHimDialogue },
+    new Option { Name = "Tschüss.", Action = () => { Console.WriteLine("Mach's gut, Fremder."); }, NextDialogue = null }
+};
+
+                    var startDialogue = new Dialogue
+                    {
+                        NpcText = "Hm? Was willst du? Bin beschäftigt. Schnell, raus damit!",
+                        Options = new[]
+                        {
+        new Option { Name = "Erzähl mir mehr über dich.", Action = () => { }, NextDialogue = aboutHimDialogue },
+        new Option { Name = "Erzähl mir mehr über Stillbach.", Action = () => { }, NextDialogue = aboutTownDialogue },
+        new Option { Name = "Was ist hier kürzlich passiert?", Action = () => { }, NextDialogue = recentEventsDialogue },
+        new Option { Name = "Tschüss.", Action = () => { Console.WriteLine("Mach's gut, Fremder."); }, NextDialogue = null }
+    }
+                    };
 
                     var npc = new DialogEntity(startDialogue);
                     var apple = new Item(ItemType.Apple);

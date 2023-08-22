@@ -61,6 +61,7 @@ namespace PatrickAssFucker
             while (IsRunning)
             {
                 string input = AnsiConsole.Ask<string>("> ").ToLower();
+                AnsiConsole.Clear();
                 input = System.Text.RegularExpressions.Regex.Replace(input.Trim(), @"\s+", " ").ToLower(); // Diese Zeile ändert den String entsprechend deinen Wünschen
                 string[] parts = input.Split(' ');
                 string commandKey = parts[0];
