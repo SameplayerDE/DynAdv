@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace PatrickAssFucker
 {
+    public enum QuestIdentifier
+    {
+        StillbachBlacksmith
+    }
+    
     public class Quest
     {
 
+        public QuestIdentifier Identifier;
         public string Title { get; set; }
         public List<QuestStep> Steps { get; private set; } = new List<QuestStep>();
         public bool IsCompleted => Steps.All(s => s.IsCompleted());
