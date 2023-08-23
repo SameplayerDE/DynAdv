@@ -1,8 +1,10 @@
+using HxLocal;
+using PatrickAssFucker.GameSystems;
 using Spectre.Console;
 
 namespace PatrickAssFucker.Entities;
 
-public class DialogOption
+/*public class DialogOption
 {
     public string Text { get; }
     public Action Action { get; }
@@ -27,54 +29,61 @@ public class Option
     public string Name { get; set; }
     public Action Action { get; set; }
     public Dialogue NextDialogue { get; set; }
-}
+}*/
 
 public class DialogEntity : Entity, ITalkable
 {
-    private Dialogue _startDialogue;
-    private Dialogue _currentDialogue;
+    //private Dialogue _startDialogue;
+    //private Dialogue _currentDialogue;
 
-    public DialogEntity(Dialogue startDialogue)
+    private GameSystems.Dialog? _start;
+    private GameSystems.Dialog? _current;
+    
+    public DialogEntity(Dialog dialog)
     {
-        _startDialogue = startDialogue;
-        _currentDialogue = _startDialogue;
+        _start = dialog;
+        _current = _start;
     }
 
     public void ResetDialogue()
     {
-        _currentDialogue = _startDialogue;
+        _current = _start;
     }
 
     public void Talk()
     {
-        ResetDialogue();
-        while (_currentDialogue != null)
+        _current = _start;
+        while (_current != null)
         {
-
-            AnsiConsole.Clear();
-
-            AnsiConsole.WriteLine(_currentDialogue.NpcText);
-
-            if (_currentDialogue.Options.Length == 0)
+            if (_current.Output != null)
             {
-                break; // Beendet die Schleife, wenn es keine Optionen gibt
+                AnsiConsole.MarkupLine(_current.Output());
             }
 
-            var selection = new SelectionPrompt<int>()
-                .Title("Wähle eine Option:")
-                .UseConverter(i => _currentDialogue.Options[i].Name);
-
-            for (int i = 0; i < _currentDialogue.Options.Length; i++)
+            if (_current.Options.Count <= 0)
             {
-                selection.AddChoice(i);
+                break;
             }
 
-            int choice = AnsiConsole.Prompt(selection);
-            _currentDialogue.Options[choice].Action.Invoke();
-            _currentDialogue = _currentDialogue.Options[choice].NextDialogue;
+            var selection =
+                new SelectionPrompt<int>()
+                    .Title(Localisation.GetString("commands.talk_dialog_selection_title"))
+                    .UseConverter(index => _current.Options[index].Input?.Invoke()!);
+            
+            var index = 0;
+            for (; index < _current.Options.Count; index++)
+            {
+                var isAvailable = _current.Options[index].IsAvailable;
+                if (isAvailable != null && !isAvailable())
+                {
+                    continue;
+                }
+                selection.AddChoice(index);
+            }
+            
+            var choice = AnsiConsole.Prompt(selection);
+            _current.Options[choice].Action?.Invoke();
+            _current = _current.Options[choice].Return ? _start : _current.Options[choice];
         }
-
-        AnsiConsole.Clear();
     }
-
 }

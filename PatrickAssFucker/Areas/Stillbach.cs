@@ -1,6 +1,7 @@
 using System.Collections;
 using HxLocal;
 using PatrickAssFucker.Entities;
+using PatrickAssFucker.GameSystems;
 using PatrickAssFucker.Managers;
 using Spectre.Console;
 
@@ -41,6 +42,43 @@ namespace PatrickAssFucker.Areas
 
             public Road() : base(AreaIdentifier.Stillbach_Road)
             {
+
+                var startDialog = new Dialog();
+                startDialog.Output = () => "Hey, was möchtest du von mir?";
+
+                var child = new DialogEntity(startDialog);
+                child.Name = "Kind";
+                
+                var askParents = new Dialog
+                {
+                    Input = () => "Wo sind deine Eltern?",
+                    Output = () => "Mein Papa ist der Schmied von Stillbach. Ich habe ihn in der Schmiede eingesperrt und den Schlüssel verloren.",
+                    IsAvailable = () => !StoryProgress.Instance.CheckCondition(ProgressType.Decisions, "parents"),
+                    Action = () => { StoryProgress.Instance.SetCondition(ProgressType.Decisions, "parents", true); }
+                };
+                startDialog.Add(askParents);
+
+                var sayBye = new Dialog
+                {
+                    Input = () => "Bye Bye!",
+                    Output = () => "Tschüss!",
+                    Action = () => {  }
+                };
+                startDialog.Add(sayBye);
+
+                var kill = new Dialog
+                {
+                    Input = () => "(töten)",
+                    Output = () => "Was machst du mit mir aawaaaadaadaAacaafagfAAAAAAAaA. ....",
+                    Action = () =>
+                    {
+                        Remove(child);
+                        StoryProgress.Instance.SetCondition(ProgressType.Decisions, "kill", true);
+                    }
+                };
+                startDialog.Add(kill);
+                
+                Add(child);
             }
         }
 
@@ -68,6 +106,11 @@ namespace PatrickAssFucker.Areas
                 };
                 OnEnter = () =>
                 {
+                    if (StoryProgress.Instance.CheckCondition(ProgressType.KeyEvents, "door_open"))
+                    {
+                        return;
+                    }
+                    StoryProgress.Instance.SetCondition(ProgressType.KeyEvents, "door_open", true);
                     if (StoryProgress.Instance.CheckCondition(ProgressType.KeyEvents, "try_open_door"))
                     {
                         AnsiConsole.MarkupLine("Vorsichtig steckst du den gefundenen Schlüssel ins Schloss...");
@@ -97,45 +140,17 @@ namespace PatrickAssFucker.Areas
 
                 public GroundFloor() : base(AreaIdentifier.Stillbach_Blacksmith_GroundFloor)
                 {
-                    var aboutTownDialogue = new Dialogue();
-                    var recentEventsDialogue = new Dialogue();
-                    var aboutHimDialogue = new Dialogue();
-
-                    aboutHimDialogue.NpcText = "Über mich? Nun, ich bin Schmied, wie du siehst. Mein Vater war's, sein Vater auch. Arbeit ist hart, aber ehrlich. Was willst du noch wissen, hm?";
-                    aboutHimDialogue.Options = new[]
+                    var dialog = new Dialog();
+                    dialog.Output = () =>
                     {
-    new Option { Name = "Erzähl mir mehr über Stillbach.", Action = () => { }, NextDialogue = aboutTownDialogue },
-    new Option { Name = "Was ist hier kürzlich passiert?", Action = () => { }, NextDialogue = recentEventsDialogue },
-    new Option { Name = "Tschüss.", Action = () => { Console.WriteLine("Mach's gut, Fremder."); }, NextDialogue = null }
-};
-
-                    recentEventsDialogue.NpcText = "Was neues? 'n Sturm hat letztens 'n Baum umgehauen. Ansonsten? Geschäft wie immer. Nich' viel los hier. Warum fragst du?";
-                    recentEventsDialogue.Options = new[]
-                    {
-    new Option { Name = "Erzähl mir mehr über dich.", Action = () => { }, NextDialogue = aboutHimDialogue },
-    new Option { Name = "Tschüss.", Action = () => { Console.WriteLine("Mach's gut, Fremder."); }, NextDialogue = null }
-};
-
-                    aboutTownDialogue.NpcText = "Stillbach, hm? Nun, 'n ruhiger Ort, das ist er. Viel passiert hier nich'. Du willst Spaß, musst woanders hingehen. Aber die Leut' hier sind ehrlich und das Land ist schön. Jetzt lass mich arbeiten!";
-                    aboutTownDialogue.Options = new[]
-                    {
-    new Option { Name = "Erzähl mir mehr über dich.", Action = () => { }, NextDialogue = aboutHimDialogue },
-    new Option { Name = "Tschüss.", Action = () => { Console.WriteLine("Mach's gut, Fremder."); }, NextDialogue = null }
-};
-
-                    var startDialogue = new Dialogue
-                    {
-                        NpcText = "Hm? Was willst du? Bin beschäftigt. Schnell, raus damit!",
-                        Options = new[]
+                        if (StoryProgress.Instance.CheckCondition(ProgressType.Decisions, "kill"))
                         {
-        new Option { Name = "Erzähl mir mehr über dich.", Action = () => { }, NextDialogue = aboutHimDialogue },
-        new Option { Name = "Erzähl mir mehr über Stillbach.", Action = () => { }, NextDialogue = aboutTownDialogue },
-        new Option { Name = "Was ist hier kürzlich passiert?", Action = () => { }, NextDialogue = recentEventsDialogue },
-        new Option { Name = "Tschüss.", Action = () => { Console.WriteLine("Mach's gut, Fremder."); }, NextDialogue = null }
-    }
+                            return "Hast du gerade diesen Schrei gehört. Es klang wie mein Kind.";
+                        }
+                        return "Mein Kind spielt vor der Schmiede.";
                     };
-
-                    var npc = new DialogEntity(startDialogue);
+                    
+                    var npc = new DialogEntity(dialog);
                     npc.Name = "Schmied";
                     var apple = new Item(ItemType.Apple);
                     

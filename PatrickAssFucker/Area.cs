@@ -131,6 +131,15 @@ namespace PatrickAssFucker
             _entities.Add(entity);
         }
         
+        public void Remove(Entity entity)
+        {
+            if (!_entities.Contains(entity))
+            {
+                return;
+            }
+            _entities.Remove(entity);
+        }
+        
         public void Add(Item item)
         {
             _items.Add(item);
