@@ -8,7 +8,6 @@ public enum ProgressType
 
 public class StoryProgress
 {
-    
     private readonly Dictionary<ProgressType, Dictionary<string, bool>> _progress = new();
     
     public static StoryProgress Instance { get; } = new();
@@ -41,16 +40,5 @@ public class StoryProgress
         }
 
         _progress[type][condition] = value;
-        
-        /*while (true)
-        {
-            if (_progress.TryGetValue(type, out var dict))
-            {
-                dict[condition] = value;
-                return;
-            }
-
-            _progress[type] = new Dictionary<string, bool>();
-        }*/
     }
 }

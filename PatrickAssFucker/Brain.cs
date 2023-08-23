@@ -1,5 +1,6 @@
 ﻿using NAudio.Wave;
 using PatrickAssFucker.Audio;
+using PatrickAssFucker.Managers;
 using Spectre.Console;
 
 namespace PatrickAssFucker
@@ -10,7 +11,8 @@ namespace PatrickAssFucker
 
         public Queue<GameMessage> Events;
         private BackgroundAudioPlayer _backgroundPlayer = new BackgroundAudioPlayer();
-
+        private LuaHandler _luaHandler;
+        
         public static Brain Instance { get; } = new Brain();
 
         static Brain()
@@ -22,8 +24,18 @@ namespace PatrickAssFucker
             Player = new Player();
 
             Events = new Queue<GameMessage>();
+            
+            _luaHandler = new();
+            _luaHandler.RegisterObject(StoryProgress.Instance, "storyProgress");
+            _luaHandler.RegisterObject(ProgressType.KeyEvents, "KeyEvents");
+            _luaHandler.RegisterObject(ProgressType.Decisions, "Decisions");
         }
 
+        public void DoFile(string path)
+        {
+            _luaHandler.DoFile(path);
+        }
+        
         /**public void StartBackgroundSound(string path, bool loop = true)
         {
             _backgroundPlayer.Play(path, loop);

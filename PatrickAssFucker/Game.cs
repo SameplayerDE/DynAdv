@@ -3,6 +3,7 @@ using PatrickAssFucker.Areas;
 using PatrickAssFucker.Commands;
 using Spectre.Console;
 using System.Diagnostics;
+using PatrickAssFucker.Managers;
 
 namespace PatrickAssFucker
 {
@@ -57,11 +58,11 @@ namespace PatrickAssFucker
             IsRunning = true;
             Heart.Start();
             Init();
-
+            
             while (IsRunning)
             {
                 string input = AnsiConsole.Ask<string>("> ").ToLower();
-                //AnsiConsole.Clear();
+                AnsiConsole.Clear();
                 input = System.Text.RegularExpressions.Regex.Replace(input.Trim(), @"\s+", " ").ToLower(); // Diese Zeile ändert den String entsprechend deinen Wünschen
                 string[] parts = input.Split(' ');
                 string commandKey = parts[0];
