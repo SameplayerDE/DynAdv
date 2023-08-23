@@ -55,9 +55,13 @@ public class DialogEntity : Entity, ITalkable
         _current = _start;
         while (_current != null)
         {
+            if (_current.Input != null)
+            {
+                AnsiConsole.MarkupLine("[purple italic]" + _current.Input() + "[/]");
+            }
             if (_current.Output != null)
             {
-                AnsiConsole.MarkupLine(_current.Output());
+                AnsiConsole.MarkupLine("[green bold]" + _current.Output() + "[/]");
             }
 
             if (_current.Options.Count <= 0)
@@ -80,9 +84,12 @@ public class DialogEntity : Entity, ITalkable
                 }
                 selection.AddChoice(index);
             }
-            
+
+
+
             var choice = AnsiConsole.Prompt(selection);
             _current.Options[choice].Action?.Invoke();
+
             _current = _current.Options[choice].Return ? _start : _current.Options[choice];
         }
     }
