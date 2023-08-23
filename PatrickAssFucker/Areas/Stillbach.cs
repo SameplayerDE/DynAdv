@@ -136,6 +136,7 @@ namespace PatrickAssFucker.Areas
                     };
 
                     var npc = new DialogEntity(startDialogue);
+                    npc.Name = "Schmied";
                     var apple = new Item(ItemType.Apple);
                     
                     Add(npc);
