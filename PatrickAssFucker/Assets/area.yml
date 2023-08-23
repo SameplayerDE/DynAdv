@@ -1,0 +1,38 @@
+Spielwelt:
+  Name: Land von Thalengard
+  Orte:
+    Flussdorf:
+      Typ: Dorf
+      Beschreibung: Ein friedliches Dorf am Fluss, bekannt für seine Fischer.
+      Interessante_Punkte:
+        - Marktplatz
+        - Fischerhütten
+        - Alte Brücke
+    Burg Thalen:
+      Typ: Festung
+      Beschreibung: Imposante Burg, Sitz des Grafen von Thalengard.
+      Interessante_Punkte:
+        - Rittersaal
+        - Wachttürme
+        - Verlies
+    Handelsstadt Greifenheim:
+      Typ: Stadt
+      Beschreibung: Lebendige Stadt mit Händlern, Handwerkern und Künstlern.
+      Interessante_Punkte:
+        - Großer Marktplatz
+        - Handwerkergasse
+        - Kathedrale
+    Nebelwald:
+      Typ: Wald
+      Beschreibung: Geheimnisvoller Wald, gefüllt mit Legenden und Rätseln.
+      Interessante_Punkte:
+        - Verlassene Kapelle
+        - Waldlichtung
+        - Höhle
+    Bergpass:
+      Typ: Gebirge
+      Beschreibung: Gefährlicher Bergpass mit Räubern und wilden Tieren.
+      Interessante_Punkte:
+        - Räuberlager
+        - Aussichtspunkt
+        - Alter Schrein

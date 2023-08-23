@@ -1,0 +1,68 @@
+areas:
+  stillbach:
+    name: "Stillbach"
+    description: "Du stehst am Eingang des Dorfes Stillbach. Vor dir erstreckt sich ein Weg, der zwischen einigen rustikalen Häusern hindurchführt."
+  stillbach_road:
+    name: "Schotterweg"
+    description: "Du befindest dich auf einem Schotterweg, der sich durch das Dorf schlängelt. Er endet an einem zentralen Platz mit einem Brunnen."
+  stillbach_blacksmith:
+    name: "Schmiede"
+    description: "Vor dir steht die Schmiede von Stillbach. Der warme Klang von hämmerndem Metall dringt an deine Ohren."
+  stillbach_blacksmith_groundfloor:
+    name: "Erdgeschoss der Schmiede"
+    description: "Ein knisterndes Feuer brennt in der Feuerstelle, während der Amboss bereit für die Bearbeitung von Metall ist."
+  stillbach_blacksmith_firstfloor:
+    name: "Erster Stock der Schmiede"
+    description: "Du befindest dich im ersten Stock der Schmiede. Hier sind Regale mit Werkzeugen und Metallstücken angeordnet."
+  stillbach_wellplace:
+    name: "Brunnenplatz"
+    description: "Du stehst auf dem malerischen Brunnenplatz. Ein alter Brunnen ziert die Mitte und das plätschernde Wasser erzeugt eine beruhigende Atmosphäre."
+kommands:
+  look:
+    name: "umschauen"
+    looking: "Du schaust dich um"
+    found:
+      item: ""
+      items: ""
+commands:
+  look_looking: "Du schaust dich um.."
+  look_found_item: "Du hast einen brauchbaren Gegenstand gefunden"
+  look_found_items: "Du hast brauchbare Gegenstände gefunden"
+  move_selection_title: "Wohin möchtest du reisen?"
+  talk_selection_title: "Mit wem möchtest du sprechen?"
+  talk_dialog_selection_title: "Wähle deine Antwort"
+  talk_alone: "Du schaust dich um, doch es scheint niemand hier zu sein, mit dem du sprechen könntest."
+  talk_nobody: "Die Anwesenden werfen dir nur flüchtige Blicke zu und scheinen nicht gesprächig zu sein."
+  talk_not_good: "Dein Instinkt sagt dir, dass es vielleicht besser ist, mit dieser Person nicht zu sprechen."
+  grab_selection_title: "Welchen Gegenstand möchtest du aufnehmen?"
+events:
+  area_enter: "Du betrittst {0}."
+  area_with_parent_enter: "Du betrittst {0}, innerhalb {1}."
+  area_leave: "Du verlässt {0}."
+items:
+  apple:
+    default: "Apfel"
+    decayed: "Verfaulter Apfel"
+    bruised: "Verbeulter Apfel"
+    unripe: "Unreifer Apfel"
+    mature: "Reifer Apfel"
+    prime: "Apfel in optimalem Zustand"
+    overripe: "Überreifer Apfel"
+    sunburned: "Sonnenverbrannter Apfel"
+    insectdamaged: "Von Insekten beschädigter Apfel"
+  bread:
+    default: "Brot"
+  midgetsword: "Zwergenschwert"
+common:
+  cancel: "Abbrechen"
+  yes: "Ja"
+  no: "Nein"
+dialogs:
+  stillbach_road:
+    child_of_blacksmith:
+      ask_for_parent:
+        input:
+          default: "Wo sind deine Eltern?"
+        output:
+          default: "Mein Papa ist der Schmied von Stillbach. Ich habe ihn in der Schmiede eingesperrt und den Schlüssel verloren."
+          killed: "..."
