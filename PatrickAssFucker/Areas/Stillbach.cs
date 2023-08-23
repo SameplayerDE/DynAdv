@@ -51,13 +51,20 @@ namespace PatrickAssFucker.Areas
                 
                 var askParents = new Dialog
                 {
-                    Input = () => "Wo sind deine Eltern?",
+                    Input = () => Localisation.GetString("dialogs.stillbach_road.child_of_blacksmith.ask_for_parent.input.default"),
                     Output = () => "Mein Papa ist der Schmied von Stillbach. Ich habe ihn in der Schmiede eingesperrt und den Schlüssel verloren.",
                     IsAvailable = () => !StoryProgress.Instance.CheckCondition(ProgressType.Decisions, "parents"),
                     Action = () => { StoryProgress.Instance.SetCondition(ProgressType.Decisions, "parents", true); }
                 };
                 startDialog.Add(askParents);
 
+                var whereIsKey = new Dialog()
+                {
+                    Input = () => "Wo denkst du hast du den Schlüssel verloren?",
+                    Output = () => "Ich bin den Weg entlanggerannt und dann war er weg.",
+                };
+                askParents.Add(whereIsKey);
+                
                 var sayBye = new Dialog
                 {
                     Input = () => "Bye Bye!",
