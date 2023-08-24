@@ -13,6 +13,7 @@ namespace PatrickAssFucker.Commands
         public void Execute(string[] args)
         {
             string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".assFucker", "saves");
+            Console.WriteLine(folderPath);
             if (!Directory.Exists(folderPath))
             {
                 Console.WriteLine("Speicherordner nicht gefunden.");

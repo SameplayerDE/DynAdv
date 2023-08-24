@@ -38,7 +38,6 @@ public class StoryProgress
         {
             _progress[type] = new Dictionary<string, bool>();
         }
-
         _progress[type][condition] = value;
     }
 }

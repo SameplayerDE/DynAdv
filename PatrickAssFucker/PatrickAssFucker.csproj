@@ -56,8 +56,6 @@
     <None Update="Assets\Scripts\demo.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-
-
   </ItemGroup>
 
 

@@ -28,7 +28,7 @@ namespace PatrickAssFucker
 
             Localisation.LoadLanguage(language);
 
-            _commands.Add("umschauen", new LookCommand());
+            _commands.Add("look around", new LookCommand());
             _commands.Add("nehmen", new TakeCommand());
             _commands.Add("status", new StatsCommand());
             _commands.Add("ablegen", new PlaceDownCommand());
@@ -62,15 +62,31 @@ namespace PatrickAssFucker
             while (IsRunning)
             {
                 string input = AnsiConsole.Ask<string>("> ").ToLower();
-                AnsiConsole.Clear();
+                //AnsiConsole.Clear();
                 input = System.Text.RegularExpressions.Regex.Replace(input.Trim(), @"\s+", " ").ToLower(); // Diese Zeile ändert den String entsprechend deinen Wünschen
-                string[] parts = input.Split(' ');
+                /*string[] parts = input.Split(' ');
                 string commandKey = parts[0];
                 if (_commands.ContainsKey(commandKey))
                 {
                     _commands[commandKey].Execute(parts[1..]);
                 }
                 else
+                {
+                    AnsiConsole.WriteLine("Unbekannter Befehl.");
+                }*/
+                var commandFound = false;
+                foreach (var command in _commands)
+                {
+                    if (!input.StartsWith(command.Key)) continue;
+                    string argumentString = input.Substring(command.Key.Length).Trim();
+                    string[] arguments = argumentString.Length > 0 ? argumentString.Split(' ') : new string[0];
+                    var cmd = command.Value;
+                    cmd.Execute(arguments);
+                    commandFound = true;
+                    break;
+                }
+
+                if (!commandFound)
                 {
                     AnsiConsole.WriteLine("Unbekannter Befehl.");
                 }
