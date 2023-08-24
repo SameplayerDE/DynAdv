@@ -58,7 +58,15 @@ namespace PatrickAssFucker
         {
             AreaManager.Instance.Add(new City());
             AreaManager.Instance.Add(new Stillbach());
+            AreaManager.Instance.Add(new Tannenhain());
 
+            var stillbach = AreaManager.Instance.GetAreaById(AreaIdentifier.Stillbach)!;
+            var tannenhain = AreaManager.Instance.GetAreaById(AreaIdentifier.Tannenhain)!;
+            var forestPath = AreaManager.Instance.GetAreaById(AreaIdentifier.Tannenhain_ForestPathRiver)!;
+            
+            //Area.Link(stillbach, tannenhain);
+            forestPath.TunnelLink(stillbach, tannenhain);
+            
             Brain.Instance.Player.MoveTo(AreaIdentifier.Stillbach);
         }
 

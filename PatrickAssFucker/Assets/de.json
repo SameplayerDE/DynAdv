@@ -23,6 +23,14 @@
     "stillbach_wellplace": {
       "name": "Brunnenplatz",
       "description": "Du stehst auf dem malerischen Brunnenplatz. Ein alter Brunnen ziert die Mitte und das plätschernde Wasser erzeugt eine beruhigende Atmosphäre."
+    },
+    "tannenhain" : {
+      "name": "Tannenhain",
+      "description": "Du siehst Bäume"
+    },
+    "tannenhain_forestpath": {
+      "name": "Waldweg",
+      "description": ""
     }
   },
   "commands": {

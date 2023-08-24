@@ -60,13 +60,22 @@ namespace PatrickAssFucker
 
             if (canMove)
             {
+                var prevArea = CurrentArea;
                 CurrentArea?.OnLeave?.Invoke();
                 CurrentArea = area;
                 CurrentArea.OnEnter?.Invoke();
 
-                while (CurrentArea.HasEntrance) // Verwenden Sie eine Schleife anstelle einer einfachen Zuweisung.
+                while (CurrentArea.HasEntrance || CurrentArea.IsTunnel) // Verwenden Sie eine Schleife anstelle einer einfachen Zuweisung.
                 {
-                    CurrentArea = CurrentArea.Entrance!;
+                    if (CurrentArea.IsTunnel)
+                    {
+                        CurrentArea = CurrentArea.GetOtherSideOfTunnel(prevArea);
+                    }
+                    else if (CurrentArea.HasEntrance)
+                    {
+                        CurrentArea = CurrentArea.Entrance!;
+                    }
+                    
                     CurrentArea.OnEnter?.Invoke();
                 }
             }

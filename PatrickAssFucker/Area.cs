@@ -27,6 +27,7 @@ namespace PatrickAssFucker
         //Tannenhain
         Tannenhain_Clearing = 0x0410,
         Tannenhain_Clearing_Shed = 0x0411,
+        Tannenhain_ForestPathRiver = 0x0420,
         //Weidennordheim
         Weidennordheim_Road_From_Tannenhain = 0x0510,
         Weidennordheim_Square = 0x0520,
@@ -45,6 +46,9 @@ namespace PatrickAssFucker
         private Area? _entrance;
         private List<Entity> _entities;
         private List<Item> _items;
+        private bool _tunnel = false;
+        public Area? _tunnelLink0;
+        public Area? _tunnelLink1;
         
         public Func<bool> CanEnter = () => true;
         public Func<bool> CanLeave = () => true;
@@ -93,6 +97,28 @@ namespace PatrickAssFucker
                 _parent = value;
             }
         }
+        public Area? TunnelLink0
+        {
+            get
+            {
+                return _tunnelLink0;
+            }
+            protected set
+            {
+                _tunnelLink0 = value;
+            }
+        }
+        public Area? TunnelLink1
+        {
+            get
+            {
+                return _tunnelLink1;
+            }
+            protected set
+            {
+                _tunnelLink1 = value;
+            }
+        }
         public ReadOnlyCollection<Area> Linked => _linked.AsReadOnly();
         public ReadOnlyCollection<Entity> Entities => _entities.AsReadOnly();
         public ReadOnlyCollection<Item> Items => _items.AsReadOnly();
@@ -104,7 +130,12 @@ namespace PatrickAssFucker
         public bool HasParent => _parent != null;
         public bool HasEntrance => _entrance != null;
         public bool IsEntrance => _parent?._entrance == this;
-
+        public bool IsTunnel
+        {
+            get => _tunnel;
+            set => _tunnel = value;
+        }
+        
         public Area()
         {
             _linked = new List<Area>();
@@ -124,6 +155,15 @@ namespace PatrickAssFucker
             b.AddLink(a);
         }
 
+        public void TunnelLink(Area a, Area b)
+        {
+            IsTunnel = true;
+            TunnelLink0 = a;
+            TunnelLink1 = b;
+            Area.Link(this, a);
+            Area.Link(this, b);
+        }
+        
         protected void AddLink(Area other)
         {
             if (!_linked.Contains(other))
@@ -230,5 +270,23 @@ namespace PatrickAssFucker
             }
             return currentArea.Name;
         }
+        
+        public Area? GetOtherSideOfTunnel(Area currentSide)
+        {
+            if (!IsTunnel)
+            {
+                return null; // Not a tunnel, so no other side to get.
+            }
+            if (currentSide.IsEntrance && currentSide.Parent != null)
+            {
+                currentSide = currentSide.Parent;
+            }
+            if (TunnelLink0 == currentSide)
+            {
+                return TunnelLink1;
+            }
+            return TunnelLink1 == currentSide ? TunnelLink0 : null; // Current side is not part of this tunnel.
+        }
+
     }
 }
