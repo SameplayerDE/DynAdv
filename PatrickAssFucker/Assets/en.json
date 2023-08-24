@@ -1,38 +1,62 @@
 ﻿{
   "areas": {
     "stillbach": {
-      "name": "Stillbrook",
-      "description": "You stand at the entrance of the village Stillbrook. A path stretches before you, winding between some rustic houses."
+      "name": "Stillbach",
+      "description": "You stand at the entrance of the village of Stillbach. Before you, a path stretches out between some rustic houses."
     },
     "stillbach_road": {
       "name": "Gravel Road",
-      "description": "You find yourself on a gravel road that meanders through the village. It ends at a central square with a fountain."
+      "description": "You are on a gravel road that winds through the village. It ends at a central square with a fountain."
     },
     "stillbach_blacksmith": {
       "name": "Blacksmith",
-      "description": "Before you stands the blacksmith of Stillbrook. The warm sound of hammering metal reaches your ears."
+      "description": "You stand before the blacksmith of Stillbach. The warm sound of hammering metal reaches your ears."
     },
     "stillbach_blacksmith_groundfloor": {
       "name": "Ground Floor of the Blacksmith",
-      "description": "A crackling fire burns in the hearth as the anvil stands ready for metalwork."
+      "description": "A crackling fire burns in the fireplace, while the anvil is ready for metalworking."
     },
     "stillbach_blacksmith_firstfloor": {
       "name": "First Floor of the Blacksmith",
-      "description": "You are on the first floor of the blacksmith. Shelves are arranged with tools and pieces of metal."
+      "description": "You are on the first floor of the blacksmith. Shelves with tools and pieces of metal are arranged here."
     },
     "stillbach_wellplace": {
-      "name": "Well Place",
-      "description": "You stand on the picturesque well place. An old well adorns the center, and the trickling water creates a soothing atmosphere."
+      "name": "Well Square",
+      "description": "You stand at the picturesque well square. An old well adorns the center and the splashing water creates a calming atmosphere."
     }
   },
   "commands": {
-    "look_looking": "You look around...",
-    "look_found_item": "You've found a usable item",
-    "look_found_items": "You've found usable items",
+    "look": {
+      "name": "look around",
+      "looking": "You look around",
+      "found": {
+        "item": "",
+        "items": ""
+      }
+    },
+    "move": {
+      "name": "go to"
+    },
+    "talk": {
+      "name": "talk to"
+    },
+    "take": {
+      "name": "pick up"
+    },
+    "place": {
+      "name": "place down"
+    },
+    "inspect": {
+      "name": "inspect"
+    },
+    "look_looking": "You look around..",
+    "look_found_item": "You found a usable item",
+    "look_found_items": "You found usable items",
     "move_selection_title": "Where would you like to travel?",
-    "talk_selection_title": "Whom would you like to talk to?",
-    "talk_alone": "You look around, but there doesn't seem to be anyone here to talk to.",
-    "talk_nobody": "The onlookers cast fleeting glances at you and don't seem talkative.",
+    "talk_selection_title": "Who would you like to talk to?",
+    "talk_dialog_selection_title": "Choose your response",
+    "talk_alone": "You look around, but there seems to be no one here to talk to.",
+    "talk_nobody": "Those present only glance at you fleetingly and don't seem talkative.",
     "talk_not_good": "Your instinct tells you it might be better not to talk to this person.",
     "grab_selection_title": "Which item would you like to pick up?"
   },
@@ -44,14 +68,14 @@
   "items": {
     "apple": {
       "default": "Apple",
-      "decayed": "Decayed Apple",
+      "decayed": "Rotten Apple",
       "bruised": "Bruised Apple",
       "unripe": "Unripe Apple",
       "mature": "Mature Apple",
-      "prime": "Apple in Optimal Condition",
+      "prime": "Apple in optimal condition",
       "overripe": "Overripe Apple",
       "sunburned": "Sunburned Apple",
-      "insectdamaged": "Apple Damaged by Insects"
+      "insectdamaged": "Insect-damaged Apple"
     },
     "bread": {
       "default": "Bread"
@@ -62,5 +86,25 @@
     "cancel": "Cancel",
     "yes": "Yes",
     "no": "No"
+  },
+  "dialogs": {
+    "stillbach_road": {
+      "child_of_blacksmith": {
+        "ask_for_parent": {
+          "input": {
+            "title": {
+              "default": "Ask about the parents."
+            },
+            "text": {
+              "default": "Well my little child, where are your dear parents hmmmmm. Does your mother have a hot butt?"
+            }
+          },
+          "output": {
+            "default": "My Papa is the blacksmith of Stillbach. I locked him in the blacksmith and lost the key.",
+            "killed": "..."
+          }
+        }
+      }
+    }
   }
 }

@@ -51,7 +51,8 @@ namespace PatrickAssFucker.Areas
                 
                 var askParents = new Dialog
                 {
-                    Input = () => Localisation.GetString("dialogs.stillbach_road.child_of_blacksmith.ask_for_parent.input.default"),
+                    InputTitle = () => Localisation.GetString("dialogs.stillbach_road.child_of_blacksmith.ask_for_parent.input.title.default"),
+                    InputText = () => Localisation.GetString("dialogs.stillbach_road.child_of_blacksmith.ask_for_parent.input.text.default"),
                     Output = () => "Mein Papa ist der Schmied von Stillbach. Ich habe ihn in der Schmiede eingesperrt und den Schlüssel verloren.",
                     IsAvailable = () => !StoryProgress.Instance.CheckCondition(ProgressType.Decisions, "parents"),
                     Action = () => { StoryProgress.Instance.SetCondition(ProgressType.Decisions, "parents", true); }
@@ -60,14 +61,15 @@ namespace PatrickAssFucker.Areas
 
                 var whereIsKey = new Dialog()
                 {
-                    Input = () => "Wo denkst du hast du den Schlüssel verloren?",
+                    InputTitle = () => "Frage das Kind nach dem Schlüssel.",
+                    InputText = () => "Wo denkst du hast du den Schlüssel verloren?",
                     Output = () => "Ich bin den Weg entlanggerannt und dann war er weg.",
                 };
                 askParents.Add(whereIsKey);
                 
                 var sayBye = new Dialog
                 {
-                    Input = () => "Bye Bye!",
+                    InputTitle = () => "Bye Bye!",
                     Output = () => "Tschüss!",
                     Action = () => {  }
                 };
@@ -75,7 +77,8 @@ namespace PatrickAssFucker.Areas
 
                 var kill = new Dialog
                 {
-                    Input = () => "(töten)",
+                    InputTitle = () => "Töte das Kind mit deinen Fäusten",
+                    InputText = () => "*DU SCHLÄGST GENÜSSLICH ZU*",
                     Output = () => "Was machst du mit mir aawaaaadaadaAacaafagfAAAAAAAaA. ....",
                     Action = () =>
                     {

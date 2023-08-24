@@ -10,7 +10,7 @@ namespace PatrickAssFucker
     public class Game
     {
 
-        private Dictionary<string, ICommand> _commands = new Dictionary<string, ICommand>();
+        private Dictionary<string, ICommand> _commands = new();
 
         public Stopwatch Heart;
         public bool IsRunning;
@@ -18,6 +18,8 @@ namespace PatrickAssFucker
         public Game()
         {
             Heart = new Stopwatch();
+            Localisation.OnLanguageChange += UpdateCommands;
+
             Localisation.FilePath = "Assets";
             var language = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
@@ -27,21 +29,28 @@ namespace PatrickAssFucker
                     .AddChoices(Localisation.ListAvailableLanguages()));
 
             Localisation.LoadLanguage(language);
+        }
 
-            _commands.Add("look around", new LookCommand());
-            _commands.Add("nehmen", new TakeCommand());
-            _commands.Add("status", new StatsCommand());
-            _commands.Add("ablegen", new PlaceDownCommand());
-            _commands.Add("untersuchen", new InspectCommand());
-            _commands.Add("gehen", new MoveCommand());
-            _commands.Add("sichern", new SaveCommand());
-            _commands.Add("laden", new LoadCommand());
-            _commands.Add("aufträge", new QuestBookCommand());
-            _commands.Add("reden", new TalkCommand());
-#if DEBUG
+        private void UpdateCommands(object? sender, LanguageChangedEventArgs e)
+        {
+            _commands.Clear();
+            _commands.Add(Localisation.GetString("commands.look.name"), new LookCommand());
+            _commands.Add(Localisation.GetString("commands.take.name"), new TakeCommand());
+            _commands.Add(Localisation.GetString("commands.stats.name"), new StatsCommand());
+            _commands.Add(Localisation.GetString("commands.place.name"), new PlaceDownCommand());
+            _commands.Add(Localisation.GetString("commands.inspect.name"), new InspectCommand());
+            _commands.Add(Localisation.GetString("commands.move.name"), new MoveCommand());
+            _commands.Add(Localisation.GetString("commands.save.name"), new SaveCommand());
+            _commands.Add(Localisation.GetString("commands.load.name"), new LoadCommand());
+            _commands.Add(Localisation.GetString("commands.quests.name"), new QuestBookCommand());
+            _commands.Add(Localisation.GetString("commands.talk.name"), new TalkCommand());
+#if DEBUG   
             _commands.Add("exp", new ExpCommand());
             _commands.Add("lingo", new LanguageCommand());
             _commands.Add("heal", new HealCommand());
+#endif
+#if DEBUG
+            AnsiConsole.MarkupLine("[bold red]Debug[/] [red]> Language has changed from[/] [bold white]" + e.PrevLanguage + "[/] [red]to[/] [white bold]" + e.CurrLanguage + "[/]");
 #endif
         }
 
@@ -63,22 +72,13 @@ namespace PatrickAssFucker
             {
                 string input = AnsiConsole.Ask<string>("> ").ToLower();
                 //AnsiConsole.Clear();
-                input = System.Text.RegularExpressions.Regex.Replace(input.Trim(), @"\s+", " ").ToLower(); // Diese Zeile ändert den String entsprechend deinen Wünschen
-                /*string[] parts = input.Split(' ');
-                string commandKey = parts[0];
-                if (_commands.ContainsKey(commandKey))
-                {
-                    _commands[commandKey].Execute(parts[1..]);
-                }
-                else
-                {
-                    AnsiConsole.WriteLine("Unbekannter Befehl.");
-                }*/
+                input = System.Text.RegularExpressions.Regex.Replace(input.Trim(), @"\s+", " ").ToLower();
                 var commandFound = false;
                 foreach (var command in _commands)
                 {
-                    if (!input.StartsWith(command.Key)) continue;
-                    string argumentString = input.Substring(command.Key.Length).Trim();
+                    var key = command.Key;
+                    if (!input.StartsWith(key)) continue;
+                    string argumentString = input.Substring(key.Length).Trim();
                     string[] arguments = argumentString.Length > 0 ? argumentString.Split(' ') : new string[0];
                     var cmd = command.Value;
                     cmd.Execute(arguments);

@@ -25,7 +25,7 @@
       "description": "Du stehst auf dem malerischen Brunnenplatz. Ein alter Brunnen ziert die Mitte und das plätschernde Wasser erzeugt eine beruhigende Atmosphäre."
     }
   },
-  "kommands": {
+  "commands": {
     "look": {
       "name": "umschauen",
       "looking": "Du schaust dich um",
@@ -33,9 +33,22 @@
         "item": "",
         "items": ""
       }
-    }
-  },
-  "commands": {
+    },
+    "move": {
+      "name": "gehen"
+    },
+    "talk": {
+      "name": "reden"
+    },
+    "take": {
+      "name": "nehmen"
+    },
+    "place": {
+      "name": "ablegen"
+    },
+    "inspect": {
+      "name": "untersuchen"
+    },
     "look_looking": "Du schaust dich um..",
     "look_found_item": "Du hast einen brauchbaren Gegenstand gefunden",
     "look_found_items": "Du hast brauchbare Gegenstände gefunden",
@@ -79,7 +92,12 @@
       "child_of_blacksmith": {
         "ask_for_parent": {
           "input": {
-            "default": "Wo sind deine Eltern?"
+            "title": {
+              "default": "Frage nach den Eltern."
+            },
+            "text": {
+              "default": "Nah mein kleines Kind, wo sind denn deine lieben Eltern hmhmmmmm. Hat deine Mutter nen geilen Arsch?"
+            }
           },
           "output": {
             "default": "Mein Papa ist der Schmied von Stillbach. Ich habe ihn in der Schmiede eingesperrt und den Schlüssel verloren.",

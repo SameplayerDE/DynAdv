@@ -55,9 +55,9 @@ public class DialogEntity : Entity, ITalkable
         _current = _start;
         while (_current != null)
         {
-            if (_current.Input != null)
+            if (_current.InputText != null)
             {
-                AnsiConsole.MarkupLine("[purple italic]" + _current.Input() + "[/]");
+                AnsiConsole.MarkupLine("[purple italic]" + _current.InputText() + "[/]");
             }
             if (_current.Output != null)
             {
@@ -72,7 +72,7 @@ public class DialogEntity : Entity, ITalkable
             var selection =
                 new SelectionPrompt<int>()
                     .Title(Localisation.GetString("commands.talk_dialog_selection_title"))
-                    .UseConverter(index => _current.Options[index].Input?.Invoke()!);
+                    .UseConverter(index => _current.Options[index].InputTitle?.Invoke()!);
             
             var index = 0;
             for (; index < _current.Options.Count; index++)

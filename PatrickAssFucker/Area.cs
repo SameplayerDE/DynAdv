@@ -10,6 +10,8 @@ namespace PatrickAssFucker
         Forest = 0x0100,
         Moutains = 0x0200,
         Stillbach = 0x0300,
+        Tannenhain = 0x0400,
+        Weidennordheim = 0x0500,
         //City
         City_Townhall = 0x0010,
         City_Townhall_Entrance = 0x0011,
@@ -22,6 +24,14 @@ namespace PatrickAssFucker
         Stillbach_Blacksmith_GroundFloor = 0x0321,
         Stillbach_Blacksmith_FirstFloor = 0x03022,
         Stillbach_WellPlace = 0x0330,
+        //Tannenhain
+        Tannenhain_Clearing = 0x0410,
+        Tannenhain_Clearing_Shed = 0x0411,
+        //Weidennordheim
+        Weidennordheim_Road_From_Tannenhain = 0x0510,
+        Weidennordheim_Square = 0x0520,
+        Weidennordheim_Townhall = 0x0530,
+        Weidennordheim_Townhall_Entrance_Hall = 0x0531,
     }
 
     public class Area
