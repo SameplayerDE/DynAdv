@@ -63,6 +63,12 @@
     "inspect": {
       "name": "untersuchen"
     },
+    "save": {
+      "name": "sichern"
+    },
+    "load": {
+      "name": "laden"
+    },
     "look_looking": "Du schaust dich um..",
     "look_found_item": "Du hast einen brauchbaren Gegenstand gefunden",
     "look_found_items": "Du hast brauchbare Gegenstände gefunden",

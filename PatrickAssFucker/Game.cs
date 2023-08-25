@@ -4,6 +4,7 @@ using PatrickAssFucker.Commands;
 using Spectre.Console;
 using System.Diagnostics;
 using PatrickAssFucker.Managers;
+using PatrickAssFucker.Audio;
 
 namespace PatrickAssFucker
 {
@@ -68,6 +69,9 @@ namespace PatrickAssFucker
             forestPath.TunnelLink(stillbach, tannenhain);
             
             Brain.Instance.Player.MoveTo(AreaIdentifier.Stillbach);
+
+            //AudioInstance instance = new AudioInstance("Assets/theme.wav", true, 0.1f);
+            //instance.Play();
         }
 
         public void Run()

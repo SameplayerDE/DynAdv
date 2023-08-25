@@ -1,4 +1,6 @@
-﻿using Spectre.Console;
+﻿using Newtonsoft.Json;
+using PatrickAssFucker.Managers;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -42,7 +44,9 @@ namespace PatrickAssFucker.Commands
 
             string filePath = Path.Combine(folderPath, fileName);
             string currentTime = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"); // Formatieren Sie das aktuelle Datum und die Uhrzeit
-            File.WriteAllText(filePath, currentTime); // Schreibt die aktuelle Uhrzeit in die Datei
+
+            string jsonString = JsonConvert.SerializeObject(StoryProgress.Instance, Formatting.Indented);
+            File.WriteAllText(filePath, jsonString); // Schreibt die aktuelle Uhrzeit in die Datei
         }
 
         private string CleanFileName(string name)

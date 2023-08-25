@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PatrickAssFucker.Managers;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -44,9 +45,8 @@ namespace PatrickAssFucker.Commands
             string filePath = Path.Combine(folderPath, fileName);
             if (File.Exists(filePath))
             {
-                string loadedTime = File.ReadAllText(filePath);
-                Console.WriteLine($"Gespeicherte Uhrzeit geladen: {loadedTime}");
-
+                string json = File.ReadAllText(filePath);
+                StoryProgress.Instance.Load(json);
                 // Hier würde Ihre Logik zum Wiederherstellen des Spielzustands basierend auf den geladenen Daten eingefügt.
             }
             else

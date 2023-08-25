@@ -17,6 +17,9 @@ namespace PatrickAssFucker
         public Random Random => _random;
         public static Brain Instance { get; } = new Brain();
 
+        public string GlobalPath;
+        private const string _pathKey = ".assFucker";
+
         static Brain()
         {
         }
@@ -31,6 +34,12 @@ namespace PatrickAssFucker
             _luaHandler.RegisterObject(StoryProgress.Instance, "storyProgress");
             _luaHandler.RegisterObject(ProgressType.KeyEvents, "KeyEvents");
             _luaHandler.RegisterObject(ProgressType.Decisions, "Decisions");
+
+            GlobalPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), _pathKey);
+            if (!Directory.Exists(GlobalPath))
+            {
+                Directory.CreateDirectory(GlobalPath);
+            }
         }
 
         public void DoFile(string path)
@@ -38,7 +47,7 @@ namespace PatrickAssFucker
             _luaHandler.DoFile(path);
         }
         
-        /**public void StartBackgroundSound(string path, bool loop = true)
+        public void StartBackgroundSound(string path, bool loop = true)
         {
             _backgroundPlayer.Play(path, loop);
         }
@@ -48,7 +57,7 @@ namespace PatrickAssFucker
             _backgroundPlayer.Stop();
         }
 
-        public void QueueEvent(GameMessage @event)
+        /*public void QueueEvent(GameMessage @event)
         {
             Events.Enqueue(@event);
         }

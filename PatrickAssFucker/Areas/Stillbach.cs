@@ -1,5 +1,6 @@
 using System.Collections;
 using HxLocal;
+using PatrickAssFucker.Audio;
 using PatrickAssFucker.Entities;
 using PatrickAssFucker.GameSystems;
 using PatrickAssFucker.Managers;
@@ -113,6 +114,9 @@ namespace PatrickAssFucker.Areas
                 {
                     StoryProgress.Instance.SetCondition(ProgressType.KeyEvents, "try_open_door", true);
                     AnsiConsole.MarkupLine("Die Tür ist verschlossen.");
+
+                    AudioInstance instance = new AudioInstance("Assets/door_heavy_shake.wav", false, 1f);
+                    instance.Play();
                 };
                 OnEnter = () =>
                 {
@@ -120,23 +124,20 @@ namespace PatrickAssFucker.Areas
                     {
                         return;
                     }
-                    StoryProgress.Instance.SetCondition(ProgressType.KeyEvents, "door_open", true);
-                    if (StoryProgress.Instance.CheckCondition(ProgressType.KeyEvents, "try_open_door"))
-                    {
-                        AnsiConsole.MarkupLine("Vorsichtig steckst du den gefundenen Schlüssel ins Schloss...");
-                        Thread.Sleep(4000); // Eine kurze Pause, um die Unsicherheit zu betonen
-
-                        AnsiConsole.MarkupLine("Mit einem kleinen Ruck öffnet sich die Tür. Dein Herzschlag verlangsamt sich langsam, während du eintrittst.");
-                    }
                     else
                     {
-                        AnsiConsole.MarkupLine("Du nimmst den Schlüssel in die Hand und hältst den Atem an. Passt er wohl?");
-                        Thread.Sleep(4000); // Eine Pause für die Unsicherheit
-
-                        AnsiConsole.MarkupLine("Du steckst den Schlüssel ins Schloss und drehst ihn langsam...");
-                        Thread.Sleep(2000); // Eine längere Pause für Spannung
-
-                        AnsiConsole.MarkupLine("Klick! Die Tür öffnet sich und du trittst ein.");
+                        StoryProgress.Instance.SetCondition(ProgressType.KeyEvents, "door_open", true);
+                        if (StoryProgress.Instance.CheckCondition(ProgressType.KeyEvents, "try_open_door"))
+                        {
+                            AnsiConsole.MarkupLine("Vorsichtig steckst du den gefundenen Schlüssel ins Schloss...");
+                            AnsiConsole.MarkupLine("Mit einem kleinen Ruck öffnet sich die Tür. Dein Herzschlag verlangsamt sich langsam, während du eintrittst.");
+                        }
+                        else
+                        {
+                            AnsiConsole.MarkupLine("Du nimmst den Schlüssel in die Hand und hältst den Atem an. Passt er wohl?");
+                            AnsiConsole.MarkupLine("Du steckst den Schlüssel ins Schloss und drehst ihn langsam...");
+                            AnsiConsole.MarkupLine("Klick! Die Tür öffnet sich und du trittst ein.");
+                        }
                     }
                 };
 

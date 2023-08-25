@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace PatrickAssFucker.Managers;
 
 public enum ProgressType
@@ -8,8 +10,9 @@ public enum ProgressType
 
 public class StoryProgress
 {
-    private readonly Dictionary<ProgressType, Dictionary<string, bool>> _progress = new();
-    
+    [JsonProperty("progress")]
+    private Dictionary<ProgressType, Dictionary<string, bool>> _progress = new();
+
     public static StoryProgress Instance { get; } = new();
 
     static StoryProgress()
@@ -40,4 +43,21 @@ public class StoryProgress
         }
         _progress[type][condition] = value;
     }
+
+    public void SetProgress(Dictionary<ProgressType, Dictionary<string, bool>> progress)
+    {
+        _progress = progress;
+    }
+
+    public void Load(string json)
+    {
+        StoryProgress loadedInstance = JsonConvert.DeserializeObject<StoryProgress>(json);
+        SetProgress(loadedInstance._progress);
+    }
+
+    public void Save()
+    {
+
+    }
+
 }

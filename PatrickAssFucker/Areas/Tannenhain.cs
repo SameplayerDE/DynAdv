@@ -8,7 +8,6 @@ public class Tannenhain : Area
 
     public override string Name => Localisation.GetString("areas.tannenhain.name");
     public override string Description => Localisation.GetString("areas.tannenhain.description");
-
     
     public Tannenhain() : base(AreaIdentifier.Tannenhain)
     {
