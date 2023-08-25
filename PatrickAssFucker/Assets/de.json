@@ -29,6 +29,12 @@
       "description": "Du siehst Bäume"
     },
     "tannenhain_forestpath": {
+      "in" : {
+        "name": "Waldweg in den Tannenhain"
+      },
+      "out": {
+        "name": "Waldweg nach Stillbach"
+      },
       "name": "Waldweg",
       "description": ""
     }

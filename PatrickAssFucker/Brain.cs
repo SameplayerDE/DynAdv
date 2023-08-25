@@ -12,7 +12,9 @@ namespace PatrickAssFucker
         public Queue<GameMessage> Events;
         private BackgroundAudioPlayer _backgroundPlayer = new BackgroundAudioPlayer();
         private LuaHandler _luaHandler;
-        
+        private Random _random;
+
+        public Random Random => _random;
         public static Brain Instance { get; } = new Brain();
 
         static Brain()
@@ -22,7 +24,7 @@ namespace PatrickAssFucker
         private Brain()
         {
             Player = new Player();
-
+            _random = new Random();
             Events = new Queue<GameMessage>();
             
             _luaHandler = new();
